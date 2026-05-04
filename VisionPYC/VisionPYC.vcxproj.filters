@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{03dff58c-8e7c-45b6-8df7-25998901196c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Common">
+      <UniqueIdentifier>{2ba57788-36a6-4ee7-af1c-af1840c6eebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Core">
+      <UniqueIdentifier>{17878700-9b82-43dc-8164-776a99067a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\GUI">
+      <UniqueIdentifier>{bba57aea-e030-4a7b-ae96-577f2d968605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins">
+      <UniqueIdentifier>{fe0ddbc0-1080-4923-b9a2-3691d5a538e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Tools">
+      <UniqueIdentifier>{5bed0752-823c-413f-88cd-47b4e8a5ac21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Src\Plugins\测试模块">
+      <UniqueIdentifier>{7b67222f-0627-48db-a9b0-625a6e3cf4e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="MainWindow.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="MainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="MainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\GlobalDef.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\PortItem.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionItem.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\INodeData.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\IFlowNode.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\CommonUtils.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\NodeDataModel.cpp">
+      <Filter>Src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\FlowGraph.cpp">
+      <Filter>Src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\GraphExecutor.cpp">
+      <Filter>Src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\CoreManager.cpp">
+      <Filter>Src\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\NodeItem.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp">
+      <Filter>Src\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\ImageFilterNode.cpp">
+      <Filter>Src\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\NodeFactory.cpp">
+      <Filter>Src\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\NodeView.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\NodeScene.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tools\OperatorButton.cpp">
+      <Filter>Src\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\CollapsibleCategory.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\TESTWidget.cpp">
+      <Filter>Src\Plugins\测试模块</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Common\GlobalDef.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI\PortItem.h">
+      <Filter>Src\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionItem.h">
+      <Filter>Src\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Common\INodeData.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Common\IFlowNode.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Common\CommonUtils.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\NodeDataModel.h">
+      <Filter>Src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\FlowGraph.h">
+      <Filter>Src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\GraphExecutor.h">
+      <Filter>Src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\CoreManager.h">
+      <Filter>Src\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI\NodeItem.h">
+      <Filter>Src\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plugins\BaseAlgorithmNode.h">
+      <Filter>Src\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plugins\ImageFilterNode.h">
+      <Filter>Src\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plugins\NodeFactory.h">
+      <Filter>Src\Plugins</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="src\Plugins\NodeScene.h">
+      <Filter>Src\GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\NodeView.h">
+      <Filter>Src\GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\NodeSelectorWidget.h">
+      <Filter>Src\GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="src\GUI\CollapsibleCategory.h">
+      <Filter>Src\GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Tools\OperatorButton.h">
+      <Filter>Src\Tools</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\TESTWidget.h">
+      <Filter>Src\Plugins\测试模块</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="src\Plugins\TESTWidget.ui">
+      <Filter>Src\Plugins\测试模块</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>
