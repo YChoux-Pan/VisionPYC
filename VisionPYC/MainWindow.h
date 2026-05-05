@@ -2,7 +2,10 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
-#include "NodeScene.h"
+
+
+#include "WorkflowTreeWidget.h"
+#include "NodeSelectorWidget.h" // 算子库
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -13,7 +16,7 @@ public:
 
 private:
 	Ui::MainWindowClass *ui;
-    NodeScene* m_scene;  // 逻辑容器
+
 private slots:
 	void onRunClicked();
 

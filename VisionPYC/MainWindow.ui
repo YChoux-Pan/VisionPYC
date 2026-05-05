@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1584</width>
+    <width>1572</width>
     <height>832</height>
    </rect>
   </property>
@@ -14,33 +14,47 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="NodeView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>10</y>
-      <width>611</width>
-      <height>761</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="NodeSelectorWidget" name="nodeSelectorWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>281</width>
-      <height>751</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,12">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <widget class="QPushButton" name="m_btn_Open">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>111</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>开始流程</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2,6">
+       <item>
+        <widget class="NodeSelectorWidget" name="nodeSelectorWidget" native="true"/>
+       </item>
+       <item>
+        <widget class="WorkflowTreeWidget" name="workFlowTreeWidget" native="true"/>
+       </item>
+       <item>
+        <widget class="QOpenGLWidget" name="openGLWidget"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1584</width>
+     <width>1572</width>
      <height>21</height>
     </rect>
    </property>
@@ -76,14 +90,15 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>NodeView</class>
-   <extends>QGraphicsView</extends>
-   <header location="global">nodeview.h</header>
-  </customwidget>
-  <customwidget>
    <class>NodeSelectorWidget</class>
    <extends>QWidget</extends>
    <header>nodeselectorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WorkflowTreeWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">workflowtreewidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

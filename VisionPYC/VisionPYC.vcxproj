@@ -93,7 +93,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConnectionItem.cpp" />
     <ClCompile Include="src\Common\CommonUtils.cpp" />
     <ClCompile Include="src\Common\GlobalDef.cpp" />
     <ClCompile Include="src\Common\IFlowNode.cpp" />
@@ -103,25 +102,28 @@
     <ClCompile Include="src\Core\GraphExecutor.cpp" />
     <ClCompile Include="src\Core\NodeDataModel.cpp" />
     <ClCompile Include="src\GUI\CollapsibleCategory.cpp" />
-    <ClCompile Include="src\GUI\NodeItem.cpp" />
-    <ClCompile Include="src\GUI\PortItem.cpp" />
+    <ClCompile Include="src\GUI\WorkflowTreeWidget.cpp" />
     <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp" />
+    <ClCompile Include="src\Plugins\Height3DWidget.cpp" />
     <ClCompile Include="src\Plugins\ImageFilterNode.cpp" />
     <ClCompile Include="src\Plugins\NodeFactory.cpp" />
-    <ClCompile Include="src\Plugins\NodeScene.cpp" />
     <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp" />
-    <ClCompile Include="src\Plugins\NodeView.cpp" />
-    <ClCompile Include="src\Plugins\TESTWidget.cpp" />
+    <ClCompile Include="src\Plugins\Planeness3DWidget.cpp" />
+    <ClCompile Include="src\Plugins\PreProcessWidget.cpp" />
+    <ClCompile Include="src\Plugins\RoiWidget.cpp" />
     <ClCompile Include="src\Tools\OperatorButton.cpp" />
+    <ClCompile Include="_3DProcessNode.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <QtUic Include="src\Plugins\TESTWidget.ui" />
+    <QtUic Include="src\Plugins\Height3DWidget.ui" />
+    <QtUic Include="src\Plugins\Planeness3DWidget.ui" />
+    <QtUic Include="src\Plugins\PreProcessWidget.ui" />
+    <QtUic Include="src\Plugins\RoiWidget.ui" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConnectionItem.h" />
     <ClInclude Include="src\Common\CommonUtils.h" />
     <ClInclude Include="src\Common\GlobalDef.h" />
     <ClInclude Include="src\Common\IFlowNode.h" />
@@ -130,17 +132,18 @@
     <ClInclude Include="src\Core\FlowGraph.h" />
     <ClInclude Include="src\Core\GraphExecutor.h" />
     <ClInclude Include="src\Core\NodeDataModel.h" />
-    <QtMoc Include="src\Plugins\TESTWidget.h" />
+    <ClInclude Include="src\Plugins\_3DProcessNode.h" />
+    <QtMoc Include="src\Plugins\Planeness3DWidget.h" />
+    <QtMoc Include="src\Plugins\RoiWidget.h" />
+    <QtMoc Include="src\Plugins\PreProcessWidget.h" />
     <QtMoc Include="src\GUI\CollapsibleCategory.h" />
-    <ClInclude Include="src\GUI\NodeItem.h" />
-    <ClInclude Include="src\GUI\PortItem.h" />
+    <QtMoc Include="src\GUI\WorkflowTreeWidget.h" />
     <ClInclude Include="src\Plugins\BaseAlgorithmNode.h" />
+    <QtMoc Include="src\Plugins\Height3DWidget.h" />
     <ClInclude Include="src\Plugins\ImageFilterNode.h" />
     <ClInclude Include="src\Plugins\NodeFactory.h" />
     <QtMoc Include="src\Tools\OperatorButton.h" />
     <QtMoc Include="src\Plugins\NodeSelectorWidget.h" />
-    <QtMoc Include="src\Plugins\NodeScene.h" />
-    <QtMoc Include="src\Plugins\NodeView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

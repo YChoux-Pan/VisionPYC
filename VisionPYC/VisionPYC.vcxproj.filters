@@ -39,8 +39,23 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
-    <Filter Include="Src\Plugins\测试模块">
+    <Filter Include="Src\Plugins\图像处理模块">
       <UniqueIdentifier>{7b67222f-0627-48db-a9b0-625a6e3cf4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\图像处理模块\图像预处理">
+      <UniqueIdentifier>{c76998a8-96ef-4ce0-bdc3-eb5d7bd32d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\3D检测">
+      <UniqueIdentifier>{cd15b9f5-49f4-4e62-bb6a-41d0a57ba94c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\3D检测\平面度检测">
+      <UniqueIdentifier>{7e6565fe-04d2-49aa-96f5-94e0176d7ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\3D检测\高度检测">
+      <UniqueIdentifier>{cff37eb1-babe-4186-8acf-8586abbcaef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\图像处理模块\ROI设置">
+      <UniqueIdentifier>{4860a2f9-932a-4bca-8fa1-7e1838977561}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,12 +79,6 @@
     <ClCompile Include="src\Common\GlobalDef.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
-    <ClCompile Include="src\GUI\PortItem.cpp">
-      <Filter>Src\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectionItem.cpp">
-      <Filter>Src\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\Common\INodeData.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
@@ -91,23 +100,11 @@
     <ClCompile Include="src\Core\CoreManager.cpp">
       <Filter>Src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\GUI\NodeItem.cpp">
-      <Filter>Src\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp">
-      <Filter>Src\Plugins</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Plugins\ImageFilterNode.cpp">
       <Filter>Src\Plugins</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\NodeFactory.cpp">
       <Filter>Src\Plugins</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Plugins\NodeView.cpp">
-      <Filter>Src\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Plugins\NodeScene.cpp">
-      <Filter>Src\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp">
       <Filter>Src\GUI</Filter>
@@ -118,19 +115,40 @@
     <ClCompile Include="src\GUI\CollapsibleCategory.cpp">
       <Filter>Src\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="src\Plugins\TESTWidget.cpp">
-      <Filter>Src\Plugins\测试模块</Filter>
+    <ClCompile Include="src\GUI\WorkflowTreeWidget.cpp">
+      <Filter>Src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\ImageFilterNode.cpp">
+      <Filter>Src\Plugins\图像处理模块</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\ImagePretreatmentWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\PreProcessWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\PreProcessWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\RoiWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\Height3DWidget.cpp">
+      <Filter>Src\Plugins\3D检测\高度检测</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
+      <Filter>Src\Plugins\3D检测</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
+    </ClCompile>
+    <ClCompile Include="_3DProcessNode.cpp">
+      <Filter>Src\Plugins\3D检测</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\GlobalDef.h">
       <Filter>Src\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GUI\PortItem.h">
-      <Filter>Src\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectionItem.h">
-      <Filter>Src\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\Common\INodeData.h">
       <Filter>Src\Common</Filter>
@@ -153,26 +171,20 @@
     <ClInclude Include="src\Core\CoreManager.h">
       <Filter>Src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\GUI\NodeItem.h">
-      <Filter>Src\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="src\Plugins\BaseAlgorithmNode.h">
-      <Filter>Src\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Plugins\ImageFilterNode.h">
       <Filter>Src\Plugins</Filter>
     </ClInclude>
     <ClInclude Include="src\Plugins\NodeFactory.h">
       <Filter>Src\Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="src\Plugins\ImageFilterNode.h">
+      <Filter>Src\Plugins\图像处理模块</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plugins\_3DProcessNode.h">
+      <Filter>Src\Plugins\3D检测</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="src\Plugins\NodeScene.h">
-      <Filter>Src\GUI</Filter>
-    </QtMoc>
-    <QtMoc Include="src\Plugins\NodeView.h">
-      <Filter>Src\GUI</Filter>
-    </QtMoc>
     <QtMoc Include="src\Plugins\NodeSelectorWidget.h">
       <Filter>Src\GUI</Filter>
     </QtMoc>
@@ -182,13 +194,49 @@
     <QtMoc Include="src\Tools\OperatorButton.h">
       <Filter>Src\Tools</Filter>
     </QtMoc>
-    <QtMoc Include="src\Plugins\TESTWidget.h">
-      <Filter>Src\Plugins\测试模块</Filter>
+    <QtMoc Include="src\GUI\WorkflowTreeWidget.h">
+      <Filter>Src\GUI</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\ImagePretreatmentWidget.h">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\PreProcessWidget.h">
+      <Filter>Src\Plugins\图像处理模块</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\PreProcessWidget.h">
+      <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\RoiWidget.h">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\Height3DWidget.h">
+      <Filter>Src\Plugins\3D检测\高度检测</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\Planeness3DWidget.h">
+      <Filter>Src\Plugins\3D检测</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\Planeness3DWidget.h">
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="src\Plugins\TESTWidget.ui">
-      <Filter>Src\Plugins\测试模块</Filter>
+    <QtUic Include="src\Plugins\ImagePretreatmentWidget.ui">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\PreProcessWidget.ui">
+      <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\RoiWidget.ui">
+      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\Height3DWidget.ui">
+      <Filter>Src\Plugins\3D检测\高度检测</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\Planeness3DWidget.ui">
+      <Filter>Src\Plugins\3D检测</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\Planeness3DWidget.ui">
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </QtUic>
   </ItemGroup>
 </Project>

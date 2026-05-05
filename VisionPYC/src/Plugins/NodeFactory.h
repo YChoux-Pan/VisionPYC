@@ -2,6 +2,7 @@
 #include <QString>
 #include <memory>
 
+
 class BaseAlgorithmNode;
 
 class NodeFactory {

@@ -1,32 +1,47 @@
 ﻿#include "ImageFilterNode.h"
-#include <QDebug>
-#include <QElapsedTimer>
+// 包含所有具体的小模块 UI
+#include "PreProcessWidget.h"
+#include "RoiWidget.h"
 
-ImageFilterNode::ImageFilterNode() : BaseAlgorithmNode("高斯滤波") {
-	addPort("Input", PortType::In);
-	addPort("Output", PortType::Out);
-	syncPortsToCore(); // 确保逻辑层的 map 被初始化
+ImageFilterNode::ImageFilterNode(QString subType)
+	: BaseAlgorithmNode(), m_subType(subType) {
+}
+
+QWidget* ImageFilterNode::getConfigWidget() {
+	// 如果已经创建过，直接返回（保留用户调节好的参数）
+	if (m_cachedWidget) return m_cachedWidget;
+
+	// 根据身份进行中转，返回独立的小模块控件
+	if (m_subType == "图像预处理") {
+		m_cachedWidget = new PreProcessWidget();
+	}
+	else if (m_subType == "ROI设置") {
+		m_cachedWidget = new RoiWidget();
+	}
+
+
+	return m_cachedWidget;
 }
 
 void ImageFilterNode::process() {
-	QElapsedTimer timer;
-	timer.start();
+	// 算法中转逻辑
+	if (!m_cachedWidget) return;
 
-	// 1. 获取输入数据
-	auto input = m_inputs[0];
-	if (!input || input->type() != DataType::Image) {
-		m_lastResult = false;
-		return;
+	if (m_subType == "图像预处理") {
+		auto* w = qobject_cast<PreProcessWidget*>(m_cachedWidget);
+		if (w) {
+			//int blurValue = w->getBlurValue(); // 从具体小模块拿到参数
+			//qDebug() << "Executing Image PreProcess with Blur:" << blurValue;
+			// 执行 OpenCV 逻辑...
+		}
+	}
+	else if (m_subType == "ROI设置") {
+		auto* w = qobject_cast<RoiWidget*>(m_cachedWidget);
+		if (w) {
+			//QRect roi = w->getRoiRect(); // 从 ROI 界面拿到矩形
+			//qDebug() << "Setting ROI:" << roi;
+		}
 	}
 
-	// 2. 执行真正的算法逻辑 (这里以伪代码示意，你可以接入 OpenCV)
-	qDebug() << "Executing Gaussian Blur on data...";
-	// cv::Mat src = input->toMat();
-	// cv::GaussianBlur(src, dst, ...);
-
-	// 3. 将结果封装成 INodeData 存入输出
-	// m_outputs[0] = std::make_shared<ImageData>(dst);
-
 	m_lastResult = true;
-	m_runTime = timer.elapsed();
 }
