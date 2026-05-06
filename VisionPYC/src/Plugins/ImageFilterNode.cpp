@@ -2,7 +2,7 @@
 // 包含所有具体的小模块 UI
 #include "PreProcessWidget.h"
 #include "RoiWidget.h"
-
+#include "CameraInputWidget.h"
 ImageFilterNode::ImageFilterNode(QString subType)
 	: BaseAlgorithmNode(), m_subType(subType) {
 }
@@ -17,6 +17,9 @@ QWidget* ImageFilterNode::getConfigWidget() {
 	}
 	else if (m_subType == "ROI设置") {
 		m_cachedWidget = new RoiWidget();
+	}
+	else if (m_subType == "采集图像") {
+		m_cachedWidget = new CameraInputWidget();
 	}
 
 
@@ -37,6 +40,13 @@ void ImageFilterNode::process() {
 	}
 	else if (m_subType == "ROI设置") {
 		auto* w = qobject_cast<RoiWidget*>(m_cachedWidget);
+		if (w) {
+			//QRect roi = w->getRoiRect(); // 从 ROI 界面拿到矩形
+			//qDebug() << "Setting ROI:" << roi;
+		}
+	}
+	else if (m_subType == "ROI设置") {
+		auto* w = qobject_cast<CameraInputWidget*>(m_cachedWidget);
 		if (w) {
 			//QRect roi = w->getRoiRect(); // 从 ROI 界面拿到矩形
 			//qDebug() << "Setting ROI:" << roi;

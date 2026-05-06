@@ -62,8 +62,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>..\VisionPYC\src\Common;..\VisionPYC\src\Core;..\VisionPYC\src\GUI;..\VisionPYC\src\Plugins;..\VisionPYC\src\Tools;$(IncludePath)</IncludePath>
+    <IncludePath>..\VisionPYC\src\Common;..\VisionPYC\src\Core;..\VisionPYC\src\GUI;..\VisionPYC\src\Plugins;..\VisionPYC\src\Tools;..\00_SDK\OpenCV\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\00_SDK\OpenCV\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>opencv_world4100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -104,6 +110,7 @@
     <ClCompile Include="src\GUI\CollapsibleCategory.cpp" />
     <ClCompile Include="src\GUI\WorkflowTreeWidget.cpp" />
     <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp" />
+    <ClCompile Include="src\Plugins\CameraInputWidget.cpp" />
     <ClCompile Include="src\Plugins\Height3DWidget.cpp" />
     <ClCompile Include="src\Plugins\ImageFilterNode.cpp" />
     <ClCompile Include="src\Plugins\NodeFactory.cpp" />
@@ -114,10 +121,12 @@
     <ClCompile Include="src\Tools\OperatorButton.cpp" />
     <ClCompile Include="_3DProcessNode.cpp" />
     <QtRcc Include="MainWindow.qrc" />
+    <QtRcc Include="Styles\style.qrc" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="src\Plugins\CameraInputWidget.ui" />
     <QtUic Include="src\Plugins\Height3DWidget.ui" />
     <QtUic Include="src\Plugins\Planeness3DWidget.ui" />
     <QtUic Include="src\Plugins\PreProcessWidget.ui" />
@@ -132,6 +141,7 @@
     <ClInclude Include="src\Core\FlowGraph.h" />
     <ClInclude Include="src\Core\GraphExecutor.h" />
     <ClInclude Include="src\Core\NodeDataModel.h" />
+    <QtMoc Include="src\Plugins\CameraInputWidget.h" />
     <ClInclude Include="src\Plugins\_3DProcessNode.h" />
     <QtMoc Include="src\Plugins\Planeness3DWidget.h" />
     <QtMoc Include="src\Plugins\RoiWidget.h" />

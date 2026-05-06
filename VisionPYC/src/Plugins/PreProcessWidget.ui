@@ -1,22 +1,20 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>PreProcessWidgetClass</class>
- <widget class="QWidget" name="PreProcessWidgetClass" >
-  <property name="objectName" >
-   <string notr="true">PreProcessWidgetClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="PreProcessWidgetClass">
+  <property name="geometry">
    <rect>
-	<x>0</x>
-	<y>0</y>
-	<width>600</width>
-	<height>400</height>
+    <x>0</x>
+    <y>0</y>
+    <width>955</width>
+    <height>520</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>PreProcessWidget</string>
-  </property>$centralwidget$
+  </property>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
  <connections/>
-</UI>
+</ui>

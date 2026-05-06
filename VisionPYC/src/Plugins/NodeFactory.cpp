@@ -2,7 +2,7 @@
 #include "ImageFilterNode.h"
 #include "_3DProcessNode.h"
 BaseAlgorithmNode* NodeFactory::createNode(const QString& typeName) {
-	QStringList imageList = { "图像预处理", "ROI设置" };
+	QStringList imageList = { "图像预处理", "ROI设置" ,"采集图像"};
 	if (imageList.contains(typeName)) {
 		return new ImageFilterNode(typeName);
 	}
@@ -12,7 +12,7 @@ BaseAlgorithmNode* NodeFactory::createNode(const QString& typeName) {
 	if (threeDList.contains(typeName)) {
 		return new _3DProcessNode(typeName);
 	}
-	// else if (typeName == "Camera") { return new CameraNode(); }
+	
 
 	return nullptr;
 }

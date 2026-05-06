@@ -57,6 +57,9 @@
     <Filter Include="Src\Plugins\图像处理模块\ROI设置">
       <UniqueIdentifier>{4860a2f9-932a-4bca-8fa1-7e1838977561}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Plugins\图像处理模块\采集设置">
+      <UniqueIdentifier>{f142f4f9-e613-48a5-b516-f08256658732}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="MainWindow.qrc">
@@ -71,6 +74,9 @@
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <QtRcc Include="Styles\style.qrc">
+      <Filter>Translation Files</Filter>
+    </QtRcc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -121,12 +127,6 @@
     <ClCompile Include="src\Plugins\ImageFilterNode.cpp">
       <Filter>Src\Plugins\图像处理模块</Filter>
     </ClCompile>
-    <ClCompile Include="src\Plugins\ImagePretreatmentWidget.cpp">
-      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Plugins\PreProcessWidget.cpp">
-      <Filter>Src\Plugins\图像处理模块</Filter>
-    </ClCompile>
     <ClCompile Include="src\Plugins\PreProcessWidget.cpp">
       <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
     </ClCompile>
@@ -137,13 +137,19 @@
       <Filter>Src\Plugins\3D检测\高度检测</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
+    </ClCompile>
+    <ClCompile Include="_3DProcessNode.cpp">
       <Filter>Src\Plugins\3D检测</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
       <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </ClCompile>
-    <ClCompile Include="_3DProcessNode.cpp">
-      <Filter>Src\Plugins\3D检测</Filter>
+    <ClCompile Include="src\Plugins\PreProcessWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plugins\CameraInputWidget.cpp">
+      <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,12 +203,6 @@
     <QtMoc Include="src\GUI\WorkflowTreeWidget.h">
       <Filter>Src\GUI</Filter>
     </QtMoc>
-    <QtMoc Include="src\Plugins\ImagePretreatmentWidget.h">
-      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
-    </QtMoc>
-    <QtMoc Include="src\Plugins\PreProcessWidget.h">
-      <Filter>Src\Plugins\图像处理模块</Filter>
-    </QtMoc>
     <QtMoc Include="src\Plugins\PreProcessWidget.h">
       <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
     </QtMoc>
@@ -213,16 +213,19 @@
       <Filter>Src\Plugins\3D检测\高度检测</Filter>
     </QtMoc>
     <QtMoc Include="src\Plugins\Planeness3DWidget.h">
-      <Filter>Src\Plugins\3D检测</Filter>
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </QtMoc>
     <QtMoc Include="src\Plugins\Planeness3DWidget.h">
       <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </QtMoc>
+    <QtMoc Include="src\Plugins\PreProcessWidget.h">
+      <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Plugins\CameraInputWidget.h">
+      <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="src\Plugins\ImagePretreatmentWidget.ui">
-      <Filter>Src\Plugins\图像处理模块\ROI设置</Filter>
-    </QtUic>
     <QtUic Include="src\Plugins\PreProcessWidget.ui">
       <Filter>Src\Plugins\图像处理模块\图像预处理</Filter>
     </QtUic>
@@ -233,10 +236,13 @@
       <Filter>Src\Plugins\3D检测\高度检测</Filter>
     </QtUic>
     <QtUic Include="src\Plugins\Planeness3DWidget.ui">
-      <Filter>Src\Plugins\3D检测</Filter>
+      <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </QtUic>
     <QtUic Include="src\Plugins\Planeness3DWidget.ui">
       <Filter>Src\Plugins\3D检测\平面度检测</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\CameraInputWidget.ui">
+      <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
     </QtUic>
   </ItemGroup>
 </Project>

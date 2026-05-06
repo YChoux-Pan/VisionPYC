@@ -110,26 +110,27 @@ void WorkflowTreeWidget::mouseDoubleClickEvent(QMouseEvent* event) {
 	BaseAlgorithmNode* node = static_cast<BaseAlgorithmNode*>(item->data(0, Qt::UserRole).value<void*>());
 	if (node) {
 		// 创建居中弹窗配置界面
-		QDialog configDlg(this);
-		configDlg.setWindowTitle("节点配置: " + item->text(0));
-		configDlg.setFixedSize(500, 400);
-
-		QVBoxLayout* layout = new QVBoxLayout(&configDlg);
-
-		// 获取子类实现的自定义配置 Widget
 		QWidget* clientUI = node->getConfigWidget();
-		if (clientUI) {
-			layout->addWidget(clientUI);
-		}
+		if (!clientUI) return;
 
-		// 添加底部操作按钮
-		QPushButton* btnClose = new QPushButton("应用并关闭");
-		btnClose->setFixedHeight(35);
-		btnClose->setStyleSheet("background-color: #444; color: white; border-radius: 4px;");
-		connect(btnClose, &QPushButton::clicked, &configDlg, &QDialog::accept);
-		layout->addWidget(btnClose);
+		// 2. 设置窗口属性：使其成为一个独立的窗口，且拥有最小化、最大化和关闭按钮
+		// Qt::Window: 声明这是一个独立窗口
+		// Qt::WindowMinMaxButtonsHint: 显示放大缩小按钮
+		// Qt::WindowCloseButtonHint: 显示关闭按钮
+		clientUI->setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 
-		configDlg.exec();
+		// 3. 设置窗口标题（会显示在标题栏）
+		clientUI->setWindowTitle("参数配置 - " + item->text(0));
+
+		// 4. 设置初始大小（你可以根据需要动态设置）
+		// 如果想让它有最小尺寸限制：
+		clientUI->setMinimumSize(200, 100);
+		clientUI->resize(900, 600); // 初始默认大小
+
+		// 5. 居中显示（可选）
+		// 如果不设置，它通常会出现在屏幕左上角或上次关闭的位置
+		clientUI->show();
+		clientUI->activateWindow(); // 确保窗口提到最前方并获得焦点
 	}
 }
 

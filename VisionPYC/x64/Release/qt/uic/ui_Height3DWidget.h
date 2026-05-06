@@ -23,7 +23,7 @@ public:
     {
         if (Height3DWidgetClass->objectName().isEmpty())
             Height3DWidgetClass->setObjectName("Height3DWidgetClass");
-        Height3DWidgetClass->resize(600, 400);
+        Height3DWidgetClass->resize(990, 559);
 
         retranslateUi(Height3DWidgetClass);
 

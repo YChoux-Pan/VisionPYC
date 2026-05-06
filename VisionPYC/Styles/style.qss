@@ -1,0 +1,50 @@
+/* 1. 整体面板设置：去掉多余边框，让界面更现代 */
+QTabWidget::pane {
+    border: 1px solid #3a3a3a;
+    background: #252526;
+    top: -1px; /* 向上移动1像素，覆盖住TabBar底部的线条 */
+}
+
+/* 2. 标签栏整体样式 */
+QTabBar {
+    background: transparent;
+}
+
+/* 3. 单个 Tab 按钮的基础样式 (高度、宽度、默认颜色) */
+QTabBar::tab {
+    background: #2d2d2d;     /* 背景色 */
+    color: #aaaaaa;          /* 文字颜色 */
+    min-width: 60px;        /* 最小宽度 */
+    height: 24px;            /* 按钮高度 */
+    padding: 0px 15px;       /* 左右内边距 */
+    margin-right: 0px;       /* 标签之间的间距 */
+   
+    /* 去掉圆角，实现直角矩形效果 */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    /* 关键：预留底部横线的位置，防止选中时抖动 */
+    border-bottom: 2px solid transparent; 
+}
+
+/* 4. 鼠标悬停 (Hover) 状态 */
+QTabBar::tab:hover {
+  background: #3e3e42;
+    color: #ffffff;
+    /* 悬停时底部横线显示为灰色 */
+    border-bottom: 2px solid #707070;
+}
+
+/* 5. 鼠标选中 (Selected) 状态：即当前点击选中的 Tab */
+QTabBar::tab:selected {
+    background: #323233;
+    color: #ffffff;          /* 选中文字变绿 */
+    font-weight: bold;
+    
+    /* 核心要求：在按钮下方搞个不同颜色的横线 */
+    border-bottom: 2px solid #00ff00; 
+}
+
+QTabBar::tab:!selected {
+    /* 移除之前的 margin-top，让所有标签高度对齐，消除错位感 */
+    margin-top: 0px; 
+}

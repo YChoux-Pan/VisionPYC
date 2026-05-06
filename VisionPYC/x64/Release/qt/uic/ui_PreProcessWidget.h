@@ -23,7 +23,7 @@ public:
     {
         if (PreProcessWidgetClass->objectName().isEmpty())
             PreProcessWidgetClass->setObjectName("PreProcessWidgetClass");
-        PreProcessWidgetClass->resize(600, 400);
+        PreProcessWidgetClass->resize(955, 520);
 
         retranslateUi(PreProcessWidgetClass);
 

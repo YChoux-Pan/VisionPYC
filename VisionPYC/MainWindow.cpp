@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// 图像检测类
 	ui->nodeSelectorWidget->addOperator("图像检测", "预处理模块", "图像预处理");
 	ui->nodeSelectorWidget->addOperator("图像检测", "区域提取", "ROI设置");
+	ui->nodeSelectorWidget->addOperator("图像检测", "采集图像", "采集图像");
 
 	// --- 2. 注册3D检测大类 ---
 	ui->nodeSelectorWidget->addOperator("3D检测", "高度测量", "高度检测");
