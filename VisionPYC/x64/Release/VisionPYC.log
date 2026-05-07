@@ -1,12 +1,11 @@
 ﻿   Qt/MSBuild: 3.5.0.0
    Qt: 6.5.3
-  rcc MainWindow.qrc
   rcc Styles\style.qrc
-  qrc_MainWindow.cpp
+  CameraInputWidget.cpp
   qrc_style.cpp
   正在生成代码
-  13 of 782 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
+  24 of 782 functions ( 3.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   VisionPYC.vcxproj -> E:\010-VisonPYC\VisionPYC\VisionPYC\x64\Release\VisionPYC.exe
