@@ -1,0 +1,7 @@
+QWidget {
+    background-color: #252526;
+    color: #cccccc;
+    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    font-size: 10pt;
+    border: none;
+}

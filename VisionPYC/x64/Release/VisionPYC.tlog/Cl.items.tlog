@@ -1,3 +1,4 @@
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\Global.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\Global.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\CommonUtils.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\CommonUtils.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\GlobalDef.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\GlobalDef.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\IFlowNode.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\IFlowNode.obj
@@ -22,6 +23,7 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\_3DProcessNode.cpp;E:\010-VisonPYC
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\MainWindow.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\main.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\main.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_MainWindow.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_style.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_style.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_MainWindow.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_CameraInputWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_CameraInputWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_Planeness3DWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_Planeness3DWidget.obj
@@ -32,4 +34,3 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_WorkflowTre
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_Height3DWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_Height3DWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_OperatorButton.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_OperatorButton.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_NodeSelectorWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_NodeSelectorWidget.obj
-E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_style.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_style.obj

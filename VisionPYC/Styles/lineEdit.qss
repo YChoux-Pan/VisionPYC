@@ -1,0 +1,32 @@
+/* 1. 默认状态 (这里我们主要定义禁用状态，因为你提到默认是禁用的) */
+QLineEdit:disabled {
+    background-color: #252526;   /* 深色背景 */
+    border: 1px solid #555555;   /* 静止时的灰色边框 */
+    color: #888888;              /* 禁用时的文字颜色变暗 */
+    padding: 2px 5px;
+    border-radius: 0px;          /* 硬朗直角 */
+}
+
+/* 2. 禁用状态下的悬停 (关键点) */
+/* 当控件不可用，但鼠标移上去时，边框变为更暗的灰色 */
+QLineEdit:disabled:hover {
+    border: 1px solid #3a3a3a;   /* 暗一点的灰色边框 */
+    background-color: #282829;   /* 背景可以微调，增加视觉反馈 */
+}
+
+/* 3. 正常启用状态 (为了完整性，也定义一下启用后的样式) */
+QLineEdit:enabled {
+    background-color: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    color: #cccccc;
+}
+
+/* 4. 正常启用状态下的悬停 */
+QLineEdit:enabled:hover {
+    border: 1px solid #555555;
+}
+
+/* 5. 焦点状态 (点击后) */
+QLineEdit:enabled:focus {
+    border: 1px solid #00CC66;   /* 呼应你的绿色主题 */
+}

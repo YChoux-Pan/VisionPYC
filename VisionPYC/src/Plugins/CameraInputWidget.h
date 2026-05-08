@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <QWidget>
 #include "ui_CameraInputWidget.h"
@@ -11,7 +11,9 @@ public:
 	CameraInputWidget(QWidget *parent = nullptr);
 	~CameraInputWidget();
 
+	void InitWidget();//界面初始化
+	void applyCustomStyles();//qss初始化
 private:
-	Ui::CameraInputWidgetClass ui;
+	Ui::CameraInputWidgetClass *ui;
 };
 

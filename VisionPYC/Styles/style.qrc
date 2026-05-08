@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>style.qss</file>
         <file>radiobutton.qss</file>
+        <file>groupBox.qss</file>
+        <file>lineEdit.qss</file>
+        <file>widget.qss</file>
+        <file>tabBar.qss</file>
+        <file>pushbutton.qss</file>
     </qresource>
 </RCC>

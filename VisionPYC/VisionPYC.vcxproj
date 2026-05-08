@@ -92,13 +92,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="src\Common\CommonUtils.cpp" />
     <ClCompile Include="src\Common\GlobalDef.cpp" />
     <ClCompile Include="src\Common\IFlowNode.cpp" />
@@ -133,6 +134,7 @@
     <QtUic Include="src\Plugins\RoiWidget.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Global.h" />
     <ClInclude Include="src\Common\CommonUtils.h" />
     <ClInclude Include="src\Common\GlobalDef.h" />
     <ClInclude Include="src\Common\IFlowNode.h" />

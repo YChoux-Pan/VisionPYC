@@ -151,6 +151,9 @@
     <ClCompile Include="src\Plugins\CameraInputWidget.cpp">
       <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
     </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\GlobalDef.h">
@@ -188,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="src\Plugins\_3DProcessNode.h">
       <Filter>Src\Plugins\3D检测</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
