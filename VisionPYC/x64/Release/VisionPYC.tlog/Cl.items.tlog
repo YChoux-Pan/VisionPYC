@@ -1,4 +1,5 @@
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\Global.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\Global.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\Global_function.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\Global_function.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\CommonUtils.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\CommonUtils.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\GlobalDef.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\GlobalDef.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Common\IFlowNode.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\IFlowNode.obj
@@ -18,6 +19,9 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Plugins\NodeSelectorWidget.cpp
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Plugins\Planeness3DWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\Planeness3DWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Plugins\PreProcessWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\PreProcessWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Plugins\RoiWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\RoiWidget.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Tools\AutoWrapLabel.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\AutoWrapLabel.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Tools\ImageListView.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\ImageListView.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Tools\ImageViewWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\ImageViewWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\src\Tools\OperatorButton.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\OperatorButton.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\_3DProcessNode.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\_3DProcessNode.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\MainWindow.obj
@@ -25,6 +29,9 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\main.cpp;E:\010-VisonPYC\VisionPYC
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_MainWindow.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_style.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_style.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_MainWindow.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_ImageListView.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_ImageListView.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_AutoWrapLabel.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_AutoWrapLabel.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_ImageViewWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_ImageViewWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_CameraInputWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_CameraInputWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_Planeness3DWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_Planeness3DWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_RoiWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_RoiWidget.obj

@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\qmake\e6a2dac4db8348d59c676f9cd1dc0b7c;D:\QT6.5.3\6.5.3\msvc2019_64\include;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtOpenGLWidgets;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtWidgets;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtOpenGL;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtGui;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtCore;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\qmake\e6a2dac4db8348d59c676f9cd1dc0b7c;/include;D:\QT6.5.3\6.5.3\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\qmake\60238a85f80c4467bdba7282801ed333;D:\QT6.5.3\6.5.3\msvc2019_64\include;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtOpenGLWidgets;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtWidgets;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtOpenGL;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtGui;D:\QT6.5.3\6.5.3\msvc2019_64\include\QtCore;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\qmake\60238a85f80c4467bdba7282801ed333;/include;D:\QT6.5.3\6.5.3\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>.\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>

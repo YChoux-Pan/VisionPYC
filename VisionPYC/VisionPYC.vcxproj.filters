@@ -154,6 +154,18 @@
     <ClCompile Include="Global.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Global_function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tools\ImageViewWidget.cpp">
+      <Filter>Src\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tools\AutoWrapLabel.cpp">
+      <Filter>Src\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tools\ImageListView.cpp">
+      <Filter>Src\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\GlobalDef.h">
@@ -195,6 +207,9 @@
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Global_function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="src\Plugins\NodeSelectorWidget.h">
@@ -229,6 +244,15 @@
     </QtMoc>
     <QtMoc Include="src\Plugins\CameraInputWidget.h">
       <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Tools\ImageViewWidget.h">
+      <Filter>Src\Tools</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Tools\AutoWrapLabel.h">
+      <Filter>Src\Tools</Filter>
+    </QtMoc>
+    <QtMoc Include="src\Tools\ImageListView.h">
+      <Filter>Src\Tools</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

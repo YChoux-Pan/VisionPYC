@@ -1,17 +1,19 @@
-/* 4. 按钮样式：直角矩形，契合你 Tab 的风格 */
+/* --- 1. 基础全局样式：对所有按钮生效 --- */
 QPushButton {
-    background-color: #333333;
-    border: 1px solid #444444;
+    background-color: #004D40;
     color: #cccccc;
     padding: 5px 15px;
     min-width: 60px;
+    outline: none;
+    border: 1px solid #004D40;
 }
 
 QPushButton:hover {
-    background-color: #3e3e42;
-    border: 1px solid #007acc;
+    background-color: #00695C;
+    border: 1px solid #7a6969;
 }
 
 QPushButton:pressed {
-    background-color: #094771;
+    background-color: #00332E;
 }
+

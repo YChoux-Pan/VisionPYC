@@ -13,20 +13,22 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <autowraplabel.h>
+#include <imagelistview.h>
+#include <imageviewwidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -35,16 +37,8 @@ class Ui_CameraInputWidgetClass
 public:
     QHBoxLayout *horizontalLayout_3;
     QWidget *widget;
-    QGridLayout *gridLayout;
-    QWidget *widget_3;
-    QFrame *frame;
-    QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
-    QLabel *label;
-    QLabel *label_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QVBoxLayout *verticalLayout_7;
+    QSplitter *splitter;
     QTabWidget *tabWidget;
     QWidget *tab;
     QVBoxLayout *verticalLayout;
@@ -59,20 +53,22 @@ public:
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_2;
     QWidget *widget_4;
-    QGridLayout *gridLayout_2;
+    QVBoxLayout *verticalLayout_6;
     QSpacerItem *verticalSpacer;
+    QWidget *widget_7;
+    QHBoxLayout *horizontalLayout_9;
     QRadioButton *m_rad_4;
+    QRadioButton *m_rad_5;
     QStackedWidget *stackedWidget_2;
     QWidget *page_5;
     QHBoxLayout *horizontalLayout_4;
-    QLineEdit *lineEdit;
+    AutoWrapLabel *label_7;
     QToolButton *toolButton;
     QWidget *page_4;
     QHBoxLayout *horizontalLayout_5;
-    QLineEdit *lineEdit_2;
+    AutoWrapLabel *label_8;
     QToolButton *toolButton_2;
     QToolButton *toolButton_3;
-    QRadioButton *m_rad_5;
     QSpacerItem *verticalSpacer_2;
     QWidget *m_page_2;
     QHBoxLayout *horizontalLayout_8;
@@ -81,23 +77,32 @@ public:
     QWidget *widget_5;
     QHBoxLayout *horizontalLayout_6;
     QCheckBox *checkBox;
-    QLineEdit *lineEdit_3;
+    QLineEdit *lineEdit;
     QToolButton *toolButton_4;
     QWidget *widget_6;
     QHBoxLayout *horizontalLayout_7;
-    QLabel *label_3;
-    QLabel *label_4;
+    QPushButton *m_btn_up;
+    QPushButton *m_btn_down;
     QCheckBox *checkBox_2;
-    QLabel *label_5;
-    QLabel *label_6;
+    QPushButton *m_btn_timer;
+    QPushButton *m_btn_name;
     QSpacerItem *horizontalSpacer_2;
-    QListView *listView;
+    ImageListView *listView;
     QWidget *m_page_3;
     QVBoxLayout *verticalLayout_4;
     QGroupBox *groupBox;
     QGroupBox *groupBox_2;
     QWidget *tab_2;
     QWidget *tab_3;
+    ImageViewWidget *widget_3;
+    QFrame *frame;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QLabel *m_label_timer;
+    QLabel *label_2;
+    QPushButton *m_btn_fun;
+    QPushButton *m_btn_OK;
+    QPushButton *m_btn_chanel;
 
     void setupUi(QWidget *CameraInputWidgetClass)
     {
@@ -108,91 +113,35 @@ public:
         horizontalLayout_3->setSpacing(0);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalLayout_3->setContentsMargins(0, 0, 0, -1);
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         widget = new QWidget(CameraInputWidgetClass);
         widget->setObjectName("widget");
-        gridLayout = new QGridLayout(widget);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName("gridLayout");
-        widget_3 = new QWidget(widget);
-        widget_3->setObjectName("widget_3");
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
-        widget_3->setSizePolicy(sizePolicy);
-
-        gridLayout->addWidget(widget_3, 0, 1, 1, 1);
-
-        frame = new QFrame(widget);
-        frame->setObjectName("frame");
-        frame->setMaximumSize(QSize(16777215, 60));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame);
-        horizontalLayout_2->setSpacing(9);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        horizontalSpacer = new QSpacerItem(760, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer);
-
-        label = new QLabel(frame);
-        label->setObjectName("label");
-        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy);
-        label->setMaximumSize(QSize(100, 20));
-        label->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-
-        horizontalLayout_2->addWidget(label);
-
-        label_2 = new QLabel(frame);
-        label_2->setObjectName("label_2");
-        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy);
-        label_2->setMaximumSize(QSize(100, 20));
-        label_2->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-
-        horizontalLayout_2->addWidget(label_2);
-
-        pushButton = new QPushButton(frame);
-        pushButton->setObjectName("pushButton");
-        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy);
-        pushButton->setMinimumSize(QSize(120, 0));
-        pushButton->setMaximumSize(QSize(120, 40));
-
-        horizontalLayout_2->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(frame);
-        pushButton_2->setObjectName("pushButton_2");
-        sizePolicy.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy);
-        pushButton_2->setMinimumSize(QSize(120, 0));
-        pushButton_2->setMaximumSize(QSize(120, 40));
-
-        horizontalLayout_2->addWidget(pushButton_2);
-
-        pushButton_3 = new QPushButton(frame);
-        pushButton_3->setObjectName("pushButton_3");
-        sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy);
-        pushButton_3->setMinimumSize(QSize(120, 0));
-        pushButton_3->setMaximumSize(QSize(120, 40));
-        pushButton_3->setSizeIncrement(QSize(120, 40));
-
-        horizontalLayout_2->addWidget(pushButton_3);
-
-
-        gridLayout->addWidget(frame, 1, 0, 1, 2);
-
-        tabWidget = new QTabWidget(widget);
+        verticalLayout_7 = new QVBoxLayout(widget);
+        verticalLayout_7->setSpacing(0);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_7->setObjectName("verticalLayout_7");
+        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
+        splitter = new QSplitter(widget);
+        splitter->setObjectName("splitter");
+        splitter->setOrientation(Qt::Horizontal);
+        splitter->setHandleWidth(5);
+        tabWidget = new QTabWidget(splitter);
         tabWidget->setObjectName("tabWidget");
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(1);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy);
+        tabWidget->setMinimumSize(QSize(280, 0));
         tabWidget->setMaximumSize(QSize(280, 16777215));
         tabWidget->setSizeIncrement(QSize(280, 0));
         tab = new QWidget();
         tab->setObjectName("tab");
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(tab->sizePolicy().hasHeightForWidth());
+        tab->setSizePolicy(sizePolicy1);
         verticalLayout = new QVBoxLayout(tab);
         verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -200,33 +149,38 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         widget_2 = new QWidget(tab);
         widget_2->setObjectName("widget_2");
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
+        widget_2->setSizePolicy(sizePolicy2);
         horizontalLayout = new QHBoxLayout(widget_2);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName("horizontalLayout");
         m_rad_1 = new QRadioButton(widget_2);
         m_rad_1->setObjectName("m_rad_1");
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(m_rad_1->sizePolicy().hasHeightForWidth());
-        m_rad_1->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(m_rad_1->sizePolicy().hasHeightForWidth());
+        m_rad_1->setSizePolicy(sizePolicy3);
         m_rad_1->setMinimumSize(QSize(80, 0));
 
         horizontalLayout->addWidget(m_rad_1);
 
         m_rad_2 = new QRadioButton(widget_2);
         m_rad_2->setObjectName("m_rad_2");
-        sizePolicy1.setHeightForWidth(m_rad_2->sizePolicy().hasHeightForWidth());
-        m_rad_2->setSizePolicy(sizePolicy1);
+        sizePolicy3.setHeightForWidth(m_rad_2->sizePolicy().hasHeightForWidth());
+        m_rad_2->setSizePolicy(sizePolicy3);
         m_rad_2->setMinimumSize(QSize(80, 0));
 
         horizontalLayout->addWidget(m_rad_2);
 
         m_rad_3 = new QRadioButton(widget_2);
         m_rad_3->setObjectName("m_rad_3");
-        sizePolicy1.setHeightForWidth(m_rad_3->sizePolicy().hasHeightForWidth());
-        m_rad_3->setSizePolicy(sizePolicy1);
+        sizePolicy3.setHeightForWidth(m_rad_3->sizePolicy().hasHeightForWidth());
+        m_rad_3->setSizePolicy(sizePolicy3);
         m_rad_3->setMinimumSize(QSize(80, 0));
 
         horizontalLayout->addWidget(m_rad_3);
@@ -239,8 +193,12 @@ public:
 
         stackedWidget = new QStackedWidget(tab);
         stackedWidget->setObjectName("stackedWidget");
+        sizePolicy2.setHeightForWidth(stackedWidget->sizePolicy().hasHeightForWidth());
+        stackedWidget->setSizePolicy(sizePolicy2);
         m_page_1 = new QWidget();
         m_page_1->setObjectName("m_page_1");
+        sizePolicy2.setHeightForWidth(m_page_1->sizePolicy().hasHeightForWidth());
+        m_page_1->setSizePolicy(sizePolicy2);
         verticalLayout_5 = new QVBoxLayout(m_page_1);
         verticalLayout_5->setSpacing(0);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -250,27 +208,49 @@ public:
         groupBox_4->setObjectName("groupBox_4");
         groupBox_4->setStyleSheet(QString::fromUtf8(""));
         verticalLayout_2 = new QVBoxLayout(groupBox_4);
-        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setSpacing(0);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         widget_4 = new QWidget(groupBox_4);
         widget_4->setObjectName("widget_4");
-        gridLayout_2 = new QGridLayout(widget_4);
-        gridLayout_2->setSpacing(0);
-        gridLayout_2->setContentsMargins(11, 11, 11, 11);
-        gridLayout_2->setObjectName("gridLayout_2");
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_6 = new QVBoxLayout(widget_4);
+        verticalLayout_6->setSpacing(0);
+        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addItem(verticalSpacer, 0, 0, 1, 1);
+        verticalLayout_6->addItem(verticalSpacer);
 
-        m_rad_4 = new QRadioButton(widget_4);
+        widget_7 = new QWidget(widget_4);
+        widget_7->setObjectName("widget_7");
+        horizontalLayout_9 = new QHBoxLayout(widget_7);
+        horizontalLayout_9->setSpacing(0);
+        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_9->setObjectName("horizontalLayout_9");
+        horizontalLayout_9->setContentsMargins(16, -1, -1, 0);
+        m_rad_4 = new QRadioButton(widget_7);
         m_rad_4->setObjectName("m_rad_4");
 
-        gridLayout_2->addWidget(m_rad_4, 1, 0, 1, 1);
+        horizontalLayout_9->addWidget(m_rad_4);
+
+        m_rad_5 = new QRadioButton(widget_7);
+        m_rad_5->setObjectName("m_rad_5");
+
+        horizontalLayout_9->addWidget(m_rad_5);
+
+
+        verticalLayout_6->addWidget(widget_7);
 
         stackedWidget_2 = new QStackedWidget(widget_4);
         stackedWidget_2->setObjectName("stackedWidget_2");
+        QSizePolicy sizePolicy4(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(stackedWidget_2->sizePolicy().hasHeightForWidth());
+        stackedWidget_2->setSizePolicy(sizePolicy4);
+        stackedWidget_2->setMinimumSize(QSize(0, 55));
         stackedWidget_2->setMaximumSize(QSize(16777215, 40));
         page_5 = new QWidget();
         page_5->setObjectName("page_5");
@@ -278,13 +258,21 @@ public:
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        lineEdit = new QLineEdit(page_5);
-        lineEdit->setObjectName("lineEdit");
+        horizontalLayout_4->setContentsMargins(-1, 0, -1, -1);
+        label_7 = new AutoWrapLabel(page_5);
+        label_7->setObjectName("label_7");
+        label_7->setMinimumSize(QSize(0, 35));
+        label_7->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout_4->addWidget(lineEdit);
+        horizontalLayout_4->addWidget(label_7);
 
         toolButton = new QToolButton(page_5);
         toolButton->setObjectName("toolButton");
+        QSizePolicy sizePolicy5(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(toolButton->sizePolicy().hasHeightForWidth());
+        toolButton->setSizePolicy(sizePolicy5);
 
         horizontalLayout_4->addWidget(toolButton);
 
@@ -295,33 +283,34 @@ public:
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
-        lineEdit_2 = new QLineEdit(page_4);
-        lineEdit_2->setObjectName("lineEdit_2");
+        horizontalLayout_5->setContentsMargins(-1, 0, -1, -1);
+        label_8 = new AutoWrapLabel(page_4);
+        label_8->setObjectName("label_8");
+        label_8->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout_5->addWidget(lineEdit_2);
+        horizontalLayout_5->addWidget(label_8);
 
         toolButton_2 = new QToolButton(page_4);
         toolButton_2->setObjectName("toolButton_2");
+        sizePolicy5.setHeightForWidth(toolButton_2->sizePolicy().hasHeightForWidth());
+        toolButton_2->setSizePolicy(sizePolicy5);
 
         horizontalLayout_5->addWidget(toolButton_2);
 
         toolButton_3 = new QToolButton(page_4);
         toolButton_3->setObjectName("toolButton_3");
+        sizePolicy5.setHeightForWidth(toolButton_3->sizePolicy().hasHeightForWidth());
+        toolButton_3->setSizePolicy(sizePolicy5);
 
         horizontalLayout_5->addWidget(toolButton_3);
 
         stackedWidget_2->addWidget(page_4);
 
-        gridLayout_2->addWidget(stackedWidget_2, 2, 0, 1, 2);
-
-        m_rad_5 = new QRadioButton(widget_4);
-        m_rad_5->setObjectName("m_rad_5");
-
-        gridLayout_2->addWidget(m_rad_5, 1, 1, 1, 1);
+        verticalLayout_6->addWidget(stackedWidget_2);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addItem(verticalSpacer_2, 3, 0, 1, 1);
+        verticalLayout_6->addItem(verticalSpacer_2);
 
 
         verticalLayout_2->addWidget(widget_4);
@@ -332,6 +321,8 @@ public:
         stackedWidget->addWidget(m_page_1);
         m_page_2 = new QWidget();
         m_page_2->setObjectName("m_page_2");
+        sizePolicy2.setHeightForWidth(m_page_2->sizePolicy().hasHeightForWidth());
+        m_page_2->setSizePolicy(sizePolicy2);
         horizontalLayout_8 = new QHBoxLayout(m_page_2);
         horizontalLayout_8->setSpacing(0);
         horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
@@ -356,10 +347,10 @@ public:
 
         horizontalLayout_6->addWidget(checkBox);
 
-        lineEdit_3 = new QLineEdit(widget_5);
-        lineEdit_3->setObjectName("lineEdit_3");
+        lineEdit = new QLineEdit(widget_5);
+        lineEdit->setObjectName("lineEdit");
 
-        horizontalLayout_6->addWidget(lineEdit_3);
+        horizontalLayout_6->addWidget(lineEdit);
 
         toolButton_4 = new QToolButton(widget_5);
         toolButton_4->setObjectName("toolButton_4");
@@ -377,41 +368,79 @@ public:
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(6, -1, -1, -1);
-        label_3 = new QLabel(widget_6);
-        label_3->setObjectName("label_3");
-        label_3->setMinimumSize(QSize(25, 0));
-        label_3->setAlignment(Qt::AlignCenter);
+        m_btn_up = new QPushButton(widget_6);
+        m_btn_up->setObjectName("m_btn_up");
+        QSizePolicy sizePolicy6(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(m_btn_up->sizePolicy().hasHeightForWidth());
+        m_btn_up->setSizePolicy(sizePolicy6);
+        m_btn_up->setMaximumSize(QSize(25, 16777215));
+        m_btn_up->setSizeIncrement(QSize(25, 0));
+        m_btn_up->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
+"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
+"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
+"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
+"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
+"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
+                        "/\n"
+"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
+        m_btn_up->setProperty("ignoreGlobal", QVariant(true));
 
-        horizontalLayout_7->addWidget(label_3);
+        horizontalLayout_7->addWidget(m_btn_up);
 
-        label_4 = new QLabel(widget_6);
-        label_4->setObjectName("label_4");
-        label_4->setMinimumSize(QSize(25, 0));
-        label_4->setAlignment(Qt::AlignCenter);
+        m_btn_down = new QPushButton(widget_6);
+        m_btn_down->setObjectName("m_btn_down");
+        m_btn_down->setMaximumSize(QSize(25, 16777215));
+        m_btn_down->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
+"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
+"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
+"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
+"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
+"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
+                        "/\n"
+"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
+        m_btn_down->setProperty("ignoreGlobal", QVariant(true));
 
-        horizontalLayout_7->addWidget(label_4);
+        horizontalLayout_7->addWidget(m_btn_down);
 
         checkBox_2 = new QCheckBox(widget_6);
         checkBox_2->setObjectName("checkBox_2");
-        sizePolicy.setHeightForWidth(checkBox_2->sizePolicy().hasHeightForWidth());
-        checkBox_2->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(checkBox_2->sizePolicy().hasHeightForWidth());
+        checkBox_2->setSizePolicy(sizePolicy1);
         checkBox_2->setMinimumSize(QSize(60, 0));
 
         horizontalLayout_7->addWidget(checkBox_2);
 
-        label_5 = new QLabel(widget_6);
-        label_5->setObjectName("label_5");
-        label_5->setMinimumSize(QSize(25, 0));
-        label_5->setAlignment(Qt::AlignCenter);
+        m_btn_timer = new QPushButton(widget_6);
+        m_btn_timer->setObjectName("m_btn_timer");
+        m_btn_timer->setMaximumSize(QSize(50, 16777215));
+        m_btn_timer->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
+"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
+"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
+"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
+"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
+"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
+                        "/\n"
+"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
+        m_btn_timer->setProperty("ignoreGlobal", QVariant(true));
 
-        horizontalLayout_7->addWidget(label_5);
+        horizontalLayout_7->addWidget(m_btn_timer);
 
-        label_6 = new QLabel(widget_6);
-        label_6->setObjectName("label_6");
-        label_6->setMinimumSize(QSize(25, 0));
-        label_6->setAlignment(Qt::AlignCenter);
+        m_btn_name = new QPushButton(widget_6);
+        m_btn_name->setObjectName("m_btn_name");
+        m_btn_name->setMaximumSize(QSize(40, 16777215));
+        m_btn_name->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
+"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
+"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
+"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
+"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
+"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
+                        "/\n"
+"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
+        m_btn_name->setProperty("ignoreGlobal", QVariant(true));
 
-        horizontalLayout_7->addWidget(label_6);
+        horizontalLayout_7->addWidget(m_btn_name);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -420,7 +449,7 @@ public:
 
         verticalLayout_3->addWidget(widget_6);
 
-        listView = new QListView(groupBox_3);
+        listView = new ImageListView(groupBox_3);
         listView->setObjectName("listView");
 
         verticalLayout_3->addWidget(listView);
@@ -431,6 +460,8 @@ public:
         stackedWidget->addWidget(m_page_2);
         m_page_3 = new QWidget();
         m_page_3->setObjectName("m_page_3");
+        sizePolicy2.setHeightForWidth(m_page_3->sizePolicy().hasHeightForWidth());
+        m_page_3->setSizePolicy(sizePolicy2);
         verticalLayout_4 = new QVBoxLayout(m_page_3);
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -453,12 +484,88 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
+        sizePolicy1.setHeightForWidth(tab_2->sizePolicy().hasHeightForWidth());
+        tab_2->setSizePolicy(sizePolicy1);
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName("tab_3");
+        sizePolicy1.setHeightForWidth(tab_3->sizePolicy().hasHeightForWidth());
+        tab_3->setSizePolicy(sizePolicy1);
         tabWidget->addTab(tab_3, QString());
+        splitter->addWidget(tabWidget);
+        widget_3 = new ImageViewWidget(splitter);
+        widget_3->setObjectName("widget_3");
+        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy7.setHorizontalStretch(3);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
+        widget_3->setSizePolicy(sizePolicy7);
+        splitter->addWidget(widget_3);
 
-        gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
+        verticalLayout_7->addWidget(splitter);
+
+        frame = new QFrame(widget);
+        frame->setObjectName("frame");
+        frame->setMaximumSize(QSize(16777215, 60));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_2 = new QHBoxLayout(frame);
+        horizontalLayout_2->setSpacing(12);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setContentsMargins(0, 0, 40, 0);
+        horizontalSpacer = new QSpacerItem(760, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        m_label_timer = new QLabel(frame);
+        m_label_timer->setObjectName("m_label_timer");
+        sizePolicy1.setHeightForWidth(m_label_timer->sizePolicy().hasHeightForWidth());
+        m_label_timer->setSizePolicy(sizePolicy1);
+        m_label_timer->setMaximumSize(QSize(100, 20));
+        m_label_timer->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(m_label_timer);
+
+        label_2 = new QLabel(frame);
+        label_2->setObjectName("label_2");
+        sizePolicy1.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy1);
+        label_2->setMaximumSize(QSize(100, 20));
+        label_2->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(label_2);
+
+        m_btn_fun = new QPushButton(frame);
+        m_btn_fun->setObjectName("m_btn_fun");
+        sizePolicy1.setHeightForWidth(m_btn_fun->sizePolicy().hasHeightForWidth());
+        m_btn_fun->setSizePolicy(sizePolicy1);
+        m_btn_fun->setMinimumSize(QSize(120, 0));
+        m_btn_fun->setMaximumSize(QSize(120, 40));
+
+        horizontalLayout_2->addWidget(m_btn_fun);
+
+        m_btn_OK = new QPushButton(frame);
+        m_btn_OK->setObjectName("m_btn_OK");
+        sizePolicy1.setHeightForWidth(m_btn_OK->sizePolicy().hasHeightForWidth());
+        m_btn_OK->setSizePolicy(sizePolicy1);
+        m_btn_OK->setMinimumSize(QSize(120, 0));
+        m_btn_OK->setMaximumSize(QSize(120, 40));
+
+        horizontalLayout_2->addWidget(m_btn_OK);
+
+        m_btn_chanel = new QPushButton(frame);
+        m_btn_chanel->setObjectName("m_btn_chanel");
+        sizePolicy1.setHeightForWidth(m_btn_chanel->sizePolicy().hasHeightForWidth());
+        m_btn_chanel->setSizePolicy(sizePolicy1);
+        m_btn_chanel->setMinimumSize(QSize(120, 0));
+        m_btn_chanel->setMaximumSize(QSize(120, 40));
+        m_btn_chanel->setSizeIncrement(QSize(120, 40));
+
+        horizontalLayout_2->addWidget(m_btn_chanel);
+
+
+        verticalLayout_7->addWidget(frame);
 
 
         horizontalLayout_3->addWidget(widget);
@@ -469,6 +576,7 @@ public:
         tabWidget->setCurrentIndex(0);
         stackedWidget->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(0);
+        m_btn_up->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(CameraInputWidgetClass);
@@ -477,33 +585,35 @@ public:
     void retranslateUi(QWidget *CameraInputWidgetClass)
     {
         CameraInputWidgetClass->setWindowTitle(QCoreApplication::translate("CameraInputWidgetClass", "CameraInputWidget", nullptr));
-        label->setText(QCoreApplication::translate("CameraInputWidgetClass", "\350\200\227\346\227\266:%d", nullptr));
-        label_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\347\212\266\346\200\201\357\274\232\346\234\252\347\237\245", nullptr));
-        pushButton->setText(QCoreApplication::translate("CameraInputWidgetClass", "\346\211\247\350\241\214", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\347\241\256\345\256\232", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("CameraInputWidgetClass", "\345\217\226\346\266\210", nullptr));
         m_rad_1->setText(QCoreApplication::translate("CameraInputWidgetClass", "\346\214\207\345\256\232\345\233\276\345\203\217", nullptr));
         m_rad_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\346\226\207\344\273\266\347\233\256\345\275\225", nullptr));
         m_rad_3->setText(QCoreApplication::translate("CameraInputWidgetClass", "\347\233\270\346\234\272", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\346\214\207\345\256\232\345\233\276\345\203\217", nullptr));
         m_rad_4->setText(QCoreApplication::translate("CameraInputWidgetClass", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
+        m_rad_5->setText(QCoreApplication::translate("CameraInputWidgetClass", "\351\223\276\346\216\245\350\267\257\345\276\204", nullptr));
+        label_7->setText(QString());
         toolButton->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
+        label_8->setText(QString());
         toolButton_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
         toolButton_3->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
-        m_rad_5->setText(QCoreApplication::translate("CameraInputWidgetClass", "\351\223\276\346\216\245\350\267\257\345\276\204", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\346\226\207\344\273\266\347\233\256\345\275\225", nullptr));
         checkBox->setText(QCoreApplication::translate("CameraInputWidgetClass", "\345\276\252\347\216\257", nullptr));
         toolButton_4->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
-        label_3->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\212", nullptr));
-        label_4->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\213", nullptr));
+        m_btn_up->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\212", nullptr));
+        m_btn_down->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\213", nullptr));
         checkBox_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\350\207\252\345\212\250\345\210\207\346\215\242", nullptr));
-        label_5->setText(QCoreApplication::translate("CameraInputWidgetClass", "\346\227\266\351\227\264", nullptr));
-        label_6->setText(QCoreApplication::translate("CameraInputWidgetClass", "A-Z", nullptr));
+        m_btn_timer->setText(QCoreApplication::translate("CameraInputWidgetClass", "Time", nullptr));
+        m_btn_name->setText(QCoreApplication::translate("CameraInputWidgetClass", "A-Z", nullptr));
         groupBox->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\347\233\270\346\234\272\346\250\241\345\274\217", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\345\205\211\346\272\220\351\200\232\350\256\257", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("CameraInputWidgetClass", "\345\237\272\346\234\254\345\217\202\346\225\260", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("CameraInputWidgetClass", "\345\233\276\345\203\217\345\217\202\346\225\260", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("CameraInputWidgetClass", "\345\205\266\344\273\226\345\217\202\346\225\260", nullptr));
+        m_label_timer->setText(QCoreApplication::translate("CameraInputWidgetClass", "\350\200\227\346\227\266: 0.00 ms", nullptr));
+        label_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\347\212\266\346\200\201\357\274\232\346\234\252\347\237\245", nullptr));
+        m_btn_fun->setText(QCoreApplication::translate("CameraInputWidgetClass", "\346\211\247\350\241\214", nullptr));
+        m_btn_OK->setText(QCoreApplication::translate("CameraInputWidgetClass", "\347\241\256\345\256\232", nullptr));
+        m_btn_chanel->setText(QCoreApplication::translate("CameraInputWidgetClass", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi
 
 };

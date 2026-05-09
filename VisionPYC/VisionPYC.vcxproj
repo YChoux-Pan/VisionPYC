@@ -100,6 +100,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Global_function.cpp" />
     <ClCompile Include="src\Common\CommonUtils.cpp" />
     <ClCompile Include="src\Common\GlobalDef.cpp" />
     <ClCompile Include="src\Common\IFlowNode.cpp" />
@@ -119,6 +120,14 @@
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp" />
     <ClCompile Include="src\Plugins\PreProcessWidget.cpp" />
     <ClCompile Include="src\Plugins\RoiWidget.cpp" />
+    <ClCompile Include="src\Tools\AutoWrapLabel.cpp" />
+    <ClCompile Include="src\Tools\ImageListView.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
+    <ClCompile Include="src\Tools\ImageViewWidget.cpp" />
     <ClCompile Include="src\Tools\OperatorButton.cpp" />
     <ClCompile Include="_3DProcessNode.cpp" />
     <QtRcc Include="MainWindow.qrc" />
@@ -135,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h" />
+    <ClInclude Include="Global_function.h" />
     <ClInclude Include="src\Common\CommonUtils.h" />
     <ClInclude Include="src\Common\GlobalDef.h" />
     <ClInclude Include="src\Common\IFlowNode.h" />
@@ -143,6 +153,9 @@
     <ClInclude Include="src\Core\FlowGraph.h" />
     <ClInclude Include="src\Core\GraphExecutor.h" />
     <ClInclude Include="src\Core\NodeDataModel.h" />
+    <QtMoc Include="src\Tools\ImageListView.h" />
+    <QtMoc Include="src\Tools\AutoWrapLabel.h" />
+    <QtMoc Include="src\Tools\ImageViewWidget.h" />
     <QtMoc Include="src\Plugins\CameraInputWidget.h" />
     <ClInclude Include="src\Plugins\_3DProcessNode.h" />
     <QtMoc Include="src\Plugins\Planeness3DWidget.h" />

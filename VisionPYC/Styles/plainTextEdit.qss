@@ -1,0 +1,32 @@
+/* 1. 默认状态 (禁用) */
+QPlainTextEdit:disabled {
+    background-color: #252526;   /* 深色背景 */
+    border: 1px solid #555555;   /* 边框 */
+    color: #888888;              /* 文字变暗 */
+    padding: 5px;                /* 多行文本建议 padding 稍大一点 */
+    border-radius: 0px;
+}
+
+/* 2. 禁用状态下的悬停 */
+QPlainTextEdit:disabled:hover {
+    border: 1px solid #3a3a3a;
+    background-color: #282829;
+}
+
+/* 3. 正常启用状态 */
+QPlainTextEdit:enabled {
+    background-color: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    color: #cccccc;
+    padding: 5px;
+}
+
+/* 4. 正常启用状态下的悬停 */
+QPlainTextEdit:enabled:hover {
+    border: 1px solid #555555;
+}
+
+/* 5. 焦点状态 (点击输入时) */
+QPlainTextEdit:enabled:focus {
+    border: 1px solid #00CC66;   /* 绿色边框 */
+}

@@ -7,5 +7,6 @@
         <file>widget.qss</file>
         <file>tabBar.qss</file>
         <file>pushbutton.qss</file>
+        <file>plainTextEdit.qss</file>
     </qresource>
 </RCC>

@@ -21,7 +21,7 @@ public:
 				if (hwnd) {
 					// 定义你的墨绿色
 					COLORREF moLvColor = RGB(0, 77, 64);
-					COLORREF frameColor = RGB(0, 120, 40);
+					COLORREF frameColor = RGB(13, 92, 83);
 
 					// 1. 设置边框颜色为墨绿 (DWMWA_BORDER_COLOR = 34)
 					DwmSetWindowAttribute(hwnd, 34, &frameColor, sizeof(frameColor));
