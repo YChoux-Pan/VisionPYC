@@ -173,7 +173,7 @@ void CameraInputWidget::on_m_btn_fun_clicked()
 	}
 
 
-	if (m_QImg.isNull())
+	if (m_QImg.isNull())  
 	{
 		qDebug() << "m_QImg 图像为空";
 		//图像为空

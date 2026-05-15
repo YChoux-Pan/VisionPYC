@@ -27,7 +27,6 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\_3DProcessNode.cpp;E:\010-VisonPYC
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\MainWindow.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\main.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\main.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_MainWindow.obj
-E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_style.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_style.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_MainWindow.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_MainWindow.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_ImageListView.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_ImageListView.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_AutoWrapLabel.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_AutoWrapLabel.obj
@@ -41,3 +40,4 @@ E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_WorkflowTre
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_Height3DWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_Height3DWidget.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_OperatorButton.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_OperatorButton.obj
 E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\moc\moc_NodeSelectorWidget.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\moc_NodeSelectorWidget.obj
+E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qt\rcc\qrc_style.cpp;E:\010-VisonPYC\VisionPYC\VisionPYC\VisionPYC\x64\Release\qrc_style.obj

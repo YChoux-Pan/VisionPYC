@@ -72,10 +72,11 @@ int main(int argc, char *argv[])
     QString exePath = QCoreApplication::applicationDirPath();
     g_pathexe = exePath.toUtf8().toStdString();
 
+	//加载文字字体
 	
 
-    window.showMaximized();
 
+    window.showMaximized();
     window.show();
     return app.exec();
 }

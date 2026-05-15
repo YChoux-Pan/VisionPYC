@@ -60,6 +60,15 @@
     <Filter Include="Src\Plugins\图像处理模块\采集设置">
       <UniqueIdentifier>{f142f4f9-e613-48a5-b516-f08256658732}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Plugins\图像处理模块\图像预处理\算子库界面">
+      <UniqueIdentifier>{f9e75839-929a-486f-8d0c-dac40f2d11a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QT模板">
+      <UniqueIdentifier>{5ec6c853-aceb-4183-81c4-e4026c56e002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Plugins\图像处理模块\存储图像">
+      <UniqueIdentifier>{6a2dad07-adb2-4f9b-8c42-2183623b2189}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="MainWindow.qrc">
@@ -166,6 +175,9 @@
     <ClCompile Include="src\Tools\ImageListView.cpp">
       <Filter>Src\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="src\Plugins\QtWidgetsClass.cpp">
+      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\GlobalDef.h">
@@ -254,6 +266,9 @@
     <QtMoc Include="src\Tools\ImageListView.h">
       <Filter>Src\Tools</Filter>
     </QtMoc>
+    <QtMoc Include="src\Plugins\QtWidgetsClass.h">
+      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="src\Plugins\PreProcessWidget.ui">
@@ -273,6 +288,12 @@
     </QtUic>
     <QtUic Include="src\Plugins\CameraInputWidget.ui">
       <Filter>Src\Plugins\图像处理模块\采集设置</Filter>
+    </QtUic>
+    <QtUic Include="src\Template\TemplateWidget.ui">
+      <Filter>QT模板</Filter>
+    </QtUic>
+    <QtUic Include="src\Plugins\QtWidgetsClass.ui">
+      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
     </QtUic>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@
 #include <QStringList>
 #include <vector>
 
-
+#include <QFontDatabase>
 
 
 
