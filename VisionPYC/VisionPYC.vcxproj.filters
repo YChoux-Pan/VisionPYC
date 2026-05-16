@@ -175,9 +175,6 @@
     <ClCompile Include="src\Tools\ImageListView.cpp">
       <Filter>Src\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="src\Plugins\QtWidgetsClass.cpp">
-      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common\GlobalDef.h">
@@ -266,9 +263,6 @@
     <QtMoc Include="src\Tools\ImageListView.h">
       <Filter>Src\Tools</Filter>
     </QtMoc>
-    <QtMoc Include="src\Plugins\QtWidgetsClass.h">
-      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="src\Plugins\PreProcessWidget.ui">
@@ -292,8 +286,8 @@
     <QtUic Include="src\Template\TemplateWidget.ui">
       <Filter>QT模板</Filter>
     </QtUic>
-    <QtUic Include="src\Plugins\QtWidgetsClass.ui">
-      <Filter>Src\Plugins\图像处理模块\存储图像</Filter>
+    <QtUic Include="src\Plugins\OperatorUI\ImageAdjust.ui">
+      <Filter>Src\Plugins\图像处理模块\图像预处理\算子库界面</Filter>
     </QtUic>
   </ItemGroup>
 </Project>

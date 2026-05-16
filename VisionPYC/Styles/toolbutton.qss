@@ -1,0 +1,13 @@
+QToolButton {
+    /* 假设你通过图标集设置了图标，或者图标文件名不包含“colored”字样 */
+    
+   
+}
+
+QToolButton:hover {
+    icon-color: #ddd; /* 悬停时稍微变灰 */
+}
+
+QToolButton:pressed {
+    icon-color: #aaa; /* 按下时变灰 */
+}

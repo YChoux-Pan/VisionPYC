@@ -47,7 +47,7 @@ public:
 
 	void moveRowUp();
 	void moveRowDown();
-
+	void updateHeader(int iheader,QString name);//外部设置表头
 private slots:
 	void onHeaderClicked(int logicalIndex);
 	

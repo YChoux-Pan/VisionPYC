@@ -138,6 +138,7 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="src\Plugins\CameraInputWidget.ui" />
     <QtUic Include="src\Plugins\Height3DWidget.ui" />
+    <QtUic Include="src\Plugins\OperatorUI\ImageAdjust.ui" />
     <QtUic Include="src\Plugins\Planeness3DWidget.ui" />
     <QtUic Include="src\Plugins\PreProcessWidget.ui" />
     <QtUic Include="src\Plugins\RoiWidget.ui" />

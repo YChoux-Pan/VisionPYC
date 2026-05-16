@@ -81,11 +81,11 @@ public:
     QToolButton *toolButton_4;
     QWidget *widget_6;
     QHBoxLayout *horizontalLayout_7;
-    QPushButton *m_btn_up;
-    QPushButton *m_btn_down;
+    QToolButton *m_btn_up;
+    QToolButton *m_btn_down;
     QCheckBox *checkBox_2;
-    QPushButton *m_btn_timer;
-    QPushButton *m_btn_name;
+    QToolButton *m_btn_timer;
+    QToolButton *m_btn_name;
     QSpacerItem *horizontalSpacer_2;
     ImageListView *listView;
     QWidget *m_page_3;
@@ -273,6 +273,8 @@ public:
         sizePolicy5.setVerticalStretch(0);
         sizePolicy5.setHeightForWidth(toolButton->sizePolicy().hasHeightForWidth());
         toolButton->setSizePolicy(sizePolicy5);
+        toolButton->setMinimumSize(QSize(30, 0));
+        toolButton->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/search-line.svg)"));
 
         horizontalLayout_4->addWidget(toolButton);
 
@@ -294,6 +296,8 @@ public:
         toolButton_2->setObjectName("toolButton_2");
         sizePolicy5.setHeightForWidth(toolButton_2->sizePolicy().hasHeightForWidth());
         toolButton_2->setSizePolicy(sizePolicy5);
+        toolButton_2->setMinimumSize(QSize(30, 0));
+        toolButton_2->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/attachment-2.svg)"));
 
         horizontalLayout_5->addWidget(toolButton_2);
 
@@ -301,6 +305,8 @@ public:
         toolButton_3->setObjectName("toolButton_3");
         sizePolicy5.setHeightForWidth(toolButton_3->sizePolicy().hasHeightForWidth());
         toolButton_3->setSizePolicy(sizePolicy5);
+        toolButton_3->setMinimumSize(QSize(30, 0));
+        toolButton_3->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/close-large-fill.svg)"));
 
         horizontalLayout_5->addWidget(toolButton_3);
 
@@ -354,6 +360,7 @@ public:
 
         toolButton_4 = new QToolButton(widget_5);
         toolButton_4->setObjectName("toolButton_4");
+        toolButton_4->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/attachment-2.svg)"));
 
         horizontalLayout_6->addWidget(toolButton_4);
 
@@ -368,39 +375,15 @@ public:
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(6, -1, -1, -1);
-        m_btn_up = new QPushButton(widget_6);
+        m_btn_up = new QToolButton(widget_6);
         m_btn_up->setObjectName("m_btn_up");
-        QSizePolicy sizePolicy6(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(m_btn_up->sizePolicy().hasHeightForWidth());
-        m_btn_up->setSizePolicy(sizePolicy6);
-        m_btn_up->setMaximumSize(QSize(25, 16777215));
-        m_btn_up->setSizeIncrement(QSize(25, 0));
-        m_btn_up->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
-"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
-"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
-"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
-"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
-"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
-                        "/\n"
-"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
-        m_btn_up->setProperty("ignoreGlobal", QVariant(true));
+        m_btn_up->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-up-long-line.svg)"));
 
         horizontalLayout_7->addWidget(m_btn_up);
 
-        m_btn_down = new QPushButton(widget_6);
+        m_btn_down = new QToolButton(widget_6);
         m_btn_down->setObjectName("m_btn_down");
-        m_btn_down->setMaximumSize(QSize(25, 16777215));
-        m_btn_down->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
-"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
-"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
-"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
-"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
-"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
-                        "/\n"
-"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
-        m_btn_down->setProperty("ignoreGlobal", QVariant(true));
+        m_btn_down->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-down-long-line.svg)"));
 
         horizontalLayout_7->addWidget(m_btn_down);
 
@@ -412,33 +395,15 @@ public:
 
         horizontalLayout_7->addWidget(checkBox_2);
 
-        m_btn_timer = new QPushButton(widget_6);
+        m_btn_timer = new QToolButton(widget_6);
         m_btn_timer->setObjectName("m_btn_timer");
-        m_btn_timer->setMaximumSize(QSize(50, 16777215));
-        m_btn_timer->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
-"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
-"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
-"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
-"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
-"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
-                        "/\n"
-"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
-        m_btn_timer->setProperty("ignoreGlobal", QVariant(true));
+        m_btn_timer->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/history-fill.svg)"));
 
         horizontalLayout_7->addWidget(m_btn_timer);
 
-        m_btn_name = new QPushButton(widget_6);
+        m_btn_name = new QToolButton(widget_6);
         m_btn_name->setObjectName("m_btn_name");
-        m_btn_name->setMaximumSize(QSize(40, 16777215));
-        m_btn_name->setStyleSheet(QString::fromUtf8("/* \345\274\272\345\210\266\345\244\215\345\216\237\350\203\214\346\231\257\343\200\201\350\276\271\346\241\206\343\200\201\351\227\264\350\267\235\345\222\214\345\260\272\345\257\270\351\231\220\345\210\266 */\n"
-"background-color: palette(window); /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\347\252\227\345\217\243\350\211\262 */\n"
-"border: 1px solid palette(dark);    /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\350\276\271\346\241\206 */\n"
-"color: palette(window-text);        /* \346\201\242\345\244\215\347\263\273\347\273\237\351\273\230\350\256\244\346\226\207\345\255\227\351\242\234\350\211\262 */\n"
-"padding: 1px 6px;                   /* \346\201\242\345\244\215\345\216\237\347\224\237\346\214\211\351\222\256\347\232\204\345\244\247\350\207\264\345\206\205\350\276\271\350\267\235 */\n"
-"min-width: 0px;                     /* \346\222\244\351\224\200\345\205\250\345\261\200\350\256\276\347\275\256\347\232\204 60px \351\231\220\345\210\266 *"
-                        "/\n"
-"outline: none;                      /* \347\247\273\351\231\244\347\204\246\347\202\271\350\231\232\347\272\277\346\241\206\357\274\210\345\217\257\351\200\211\357\274\211 */"));
-        m_btn_name->setProperty("ignoreGlobal", QVariant(true));
+        m_btn_name->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/filter-2-fill.svg)"));
 
         horizontalLayout_7->addWidget(m_btn_name);
 
@@ -495,11 +460,11 @@ public:
         splitter->addWidget(tabWidget);
         widget_3 = new ImageViewWidget(splitter);
         widget_3->setObjectName("widget_3");
-        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy7.setHorizontalStretch(3);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
-        widget_3->setSizePolicy(sizePolicy7);
+        QSizePolicy sizePolicy6(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy6.setHorizontalStretch(3);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
+        widget_3->setSizePolicy(sizePolicy6);
         splitter->addWidget(widget_3);
 
         verticalLayout_7->addWidget(splitter);
@@ -575,8 +540,7 @@ public:
 
         tabWidget->setCurrentIndex(0);
         stackedWidget->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(0);
-        m_btn_up->setDefault(false);
+        stackedWidget_2->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(CameraInputWidgetClass);
@@ -599,11 +563,11 @@ public:
         groupBox_3->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\346\226\207\344\273\266\347\233\256\345\275\225", nullptr));
         checkBox->setText(QCoreApplication::translate("CameraInputWidgetClass", "\345\276\252\347\216\257", nullptr));
         toolButton_4->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
-        m_btn_up->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\212", nullptr));
-        m_btn_down->setText(QCoreApplication::translate("CameraInputWidgetClass", "\344\270\213", nullptr));
+        m_btn_up->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
+        m_btn_down->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
         checkBox_2->setText(QCoreApplication::translate("CameraInputWidgetClass", "\350\207\252\345\212\250\345\210\207\346\215\242", nullptr));
-        m_btn_timer->setText(QCoreApplication::translate("CameraInputWidgetClass", "Time", nullptr));
-        m_btn_name->setText(QCoreApplication::translate("CameraInputWidgetClass", "A-Z", nullptr));
+        m_btn_timer->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
+        m_btn_name->setText(QCoreApplication::translate("CameraInputWidgetClass", "...", nullptr));
         groupBox->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\347\233\270\346\234\272\346\250\241\345\274\217", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("CameraInputWidgetClass", "\345\205\211\346\272\220\351\200\232\350\256\257", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("CameraInputWidgetClass", "\345\237\272\346\234\254\345\217\202\346\225\260", nullptr));

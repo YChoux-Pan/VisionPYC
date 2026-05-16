@@ -71,15 +71,15 @@ public:
     QVBoxLayout *verticalLayout_6;
     QFrame *frame_4;
     QHBoxLayout *horizontalLayout_4;
-    QToolButton *toolButton_5;
-    QToolButton *toolButton_6;
-    QToolButton *toolButton_7;
-    QToolButton *toolButton_8;
+    QToolButton *m_toolbtn_add;
+    QToolButton *m_toolbtn_delate;
+    QToolButton *m_toolbtn_up;
+    QToolButton *m_toolbtn_down;
     QCheckBox *checkBox;
     ImageListView *listView;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_9;
-    QWidget *widget_6;
+    QWidget *m_wid_setting;
     QWidget *tab_3;
     ImageViewWidget *widget_3;
     QFrame *frame;
@@ -95,11 +95,17 @@ public:
     {
         if (PreProcessWidgetClass->objectName().isEmpty())
             PreProcessWidgetClass->setObjectName("PreProcessWidgetClass");
-        PreProcessWidgetClass->resize(1509, 831);
+        PreProcessWidgetClass->resize(1465, 750);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(PreProcessWidgetClass->sizePolicy().hasHeightForWidth());
+        PreProcessWidgetClass->setSizePolicy(sizePolicy);
         verticalLayout_8 = new QVBoxLayout(PreProcessWidgetClass);
-        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setSpacing(0);
         verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName("verticalLayout_8");
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
         widget = new QWidget(PreProcessWidgetClass);
         widget->setObjectName("widget");
         verticalLayout_7 = new QVBoxLayout(widget);
@@ -113,21 +119,18 @@ public:
         splitter->setHandleWidth(5);
         tabWidget = new QTabWidget(splitter);
         tabWidget->setObjectName("tabWidget");
-        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(1);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
-        tabWidget->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(1);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy1);
         tabWidget->setMinimumSize(QSize(280, 0));
         tabWidget->setMaximumSize(QSize(280, 16777215));
         tabWidget->setSizeIncrement(QSize(280, 0));
         tab = new QWidget();
         tab->setObjectName("tab");
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(tab->sizePolicy().hasHeightForWidth());
-        tab->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(tab->sizePolicy().hasHeightForWidth());
+        tab->setSizePolicy(sizePolicy);
         verticalLayout = new QVBoxLayout(tab);
         verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -142,8 +145,8 @@ public:
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         groupBox = new QGroupBox(widget_2);
         groupBox->setObjectName("groupBox");
-        sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
-        groupBox->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy);
         groupBox->setMaximumSize(QSize(16777215, 80));
         verticalLayout_3 = new QVBoxLayout(groupBox);
         verticalLayout_3->setSpacing(0);
@@ -172,16 +175,16 @@ public:
 
         toolButton = new QToolButton(frame_2);
         toolButton->setObjectName("toolButton");
-        sizePolicy1.setHeightForWidth(toolButton->sizePolicy().hasHeightForWidth());
-        toolButton->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(toolButton->sizePolicy().hasHeightForWidth());
+        toolButton->setSizePolicy(sizePolicy);
         toolButton->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/link.svg)"));
 
         horizontalLayout->addWidget(toolButton);
 
         toolButton_2 = new QToolButton(frame_2);
         toolButton_2->setObjectName("toolButton_2");
-        sizePolicy1.setHeightForWidth(toolButton_2->sizePolicy().hasHeightForWidth());
-        toolButton_2->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(toolButton_2->sizePolicy().hasHeightForWidth());
+        toolButton_2->setSizePolicy(sizePolicy);
         toolButton_2->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/close-line.svg)"));
 
         horizontalLayout->addWidget(toolButton_2);
@@ -194,8 +197,8 @@ public:
 
         groupBox_2 = new QGroupBox(widget_2);
         groupBox_2->setObjectName("groupBox_2");
-        sizePolicy1.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
-        groupBox_2->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
+        groupBox_2->setSizePolicy(sizePolicy);
         verticalLayout_4 = new QVBoxLayout(groupBox_2);
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -252,16 +255,16 @@ public:
 
         toolButton_3 = new QToolButton(frame_3);
         toolButton_3->setObjectName("toolButton_3");
-        sizePolicy1.setHeightForWidth(toolButton_3->sizePolicy().hasHeightForWidth());
-        toolButton_3->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(toolButton_3->sizePolicy().hasHeightForWidth());
+        toolButton_3->setSizePolicy(sizePolicy);
         toolButton_3->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/link.svg)"));
 
         horizontalLayout_3->addWidget(toolButton_3);
 
         toolButton_4 = new QToolButton(frame_3);
         toolButton_4->setObjectName("toolButton_4");
-        sizePolicy1.setHeightForWidth(toolButton_4->sizePolicy().hasHeightForWidth());
-        toolButton_4->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(toolButton_4->sizePolicy().hasHeightForWidth());
+        toolButton_4->setSizePolicy(sizePolicy);
         toolButton_4->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/close-line.svg)"));
 
         horizontalLayout_3->addWidget(toolButton_4);
@@ -282,8 +285,8 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
-        sizePolicy1.setHeightForWidth(tab_2->sizePolicy().hasHeightForWidth());
-        tab_2->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(tab_2->sizePolicy().hasHeightForWidth());
+        tab_2->setSizePolicy(sizePolicy);
         verticalLayout_5 = new QVBoxLayout(tab_2);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -306,33 +309,34 @@ public:
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        toolButton_5 = new QToolButton(frame_4);
-        toolButton_5->setObjectName("toolButton_5");
-        toolButton_5->setMinimumSize(QSize(40, 40));
-        toolButton_5->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/add-large-fill.svg)"));
+        m_toolbtn_add = new QToolButton(frame_4);
+        m_toolbtn_add->setObjectName("m_toolbtn_add");
+        m_toolbtn_add->setMinimumSize(QSize(40, 40));
+        m_toolbtn_add->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/add-large-fill.svg);\n"
+"icon-color: white;"));
 
-        horizontalLayout_4->addWidget(toolButton_5);
+        horizontalLayout_4->addWidget(m_toolbtn_add);
 
-        toolButton_6 = new QToolButton(frame_4);
-        toolButton_6->setObjectName("toolButton_6");
-        toolButton_6->setMinimumSize(QSize(40, 40));
-        toolButton_6->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/subtract-line.svg)"));
+        m_toolbtn_delate = new QToolButton(frame_4);
+        m_toolbtn_delate->setObjectName("m_toolbtn_delate");
+        m_toolbtn_delate->setMinimumSize(QSize(40, 40));
+        m_toolbtn_delate->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/subtract-line.svg)"));
 
-        horizontalLayout_4->addWidget(toolButton_6);
+        horizontalLayout_4->addWidget(m_toolbtn_delate);
 
-        toolButton_7 = new QToolButton(frame_4);
-        toolButton_7->setObjectName("toolButton_7");
-        toolButton_7->setMinimumSize(QSize(40, 40));
-        toolButton_7->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-up-long-line.svg)"));
+        m_toolbtn_up = new QToolButton(frame_4);
+        m_toolbtn_up->setObjectName("m_toolbtn_up");
+        m_toolbtn_up->setMinimumSize(QSize(40, 40));
+        m_toolbtn_up->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-up-long-line.svg)"));
 
-        horizontalLayout_4->addWidget(toolButton_7);
+        horizontalLayout_4->addWidget(m_toolbtn_up);
 
-        toolButton_8 = new QToolButton(frame_4);
-        toolButton_8->setObjectName("toolButton_8");
-        toolButton_8->setMinimumSize(QSize(40, 40));
-        toolButton_8->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-down-long-line.svg)"));
+        m_toolbtn_down = new QToolButton(frame_4);
+        m_toolbtn_down->setObjectName("m_toolbtn_down");
+        m_toolbtn_down->setMinimumSize(QSize(40, 40));
+        m_toolbtn_down->setStyleSheet(QString::fromUtf8("qproperty-icon:url(:/icon/icon/arrow-down-long-line.svg)"));
 
-        horizontalLayout_4->addWidget(toolButton_8);
+        horizontalLayout_4->addWidget(m_toolbtn_down);
 
         checkBox = new QCheckBox(frame_4);
         checkBox->setObjectName("checkBox");
@@ -349,29 +353,32 @@ public:
 
         groupBox_3 = new QGroupBox(widget_5);
         groupBox_3->setObjectName("groupBox_3");
-        sizePolicy1.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
-        groupBox_3->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
+        groupBox_3->setSizePolicy(sizePolicy);
         verticalLayout_9 = new QVBoxLayout(groupBox_3);
         verticalLayout_9->setSpacing(0);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName("verticalLayout_9");
         verticalLayout_9->setContentsMargins(0, 10, 0, 0);
-        widget_6 = new QWidget(groupBox_3);
-        widget_6->setObjectName("widget_6");
+        m_wid_setting = new QWidget(groupBox_3);
+        m_wid_setting->setObjectName("m_wid_setting");
 
-        verticalLayout_9->addWidget(widget_6);
+        verticalLayout_9->addWidget(m_wid_setting);
 
 
         verticalLayout_6->addWidget(groupBox_3);
 
+        verticalLayout_6->setStretch(0, 1);
+        verticalLayout_6->setStretch(1, 6);
+        verticalLayout_6->setStretch(2, 6);
 
         verticalLayout_5->addWidget(widget_5);
 
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName("tab_3");
-        sizePolicy1.setHeightForWidth(tab_3->sizePolicy().hasHeightForWidth());
-        tab_3->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(tab_3->sizePolicy().hasHeightForWidth());
+        tab_3->setSizePolicy(sizePolicy);
         tabWidget->addTab(tab_3, QString());
         splitter->addWidget(tabWidget);
         widget_3 = new ImageViewWidget(splitter);
@@ -387,6 +394,9 @@ public:
 
         frame = new QFrame(widget);
         frame->setObjectName("frame");
+        sizePolicy.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
+        frame->setSizePolicy(sizePolicy);
+        frame->setMinimumSize(QSize(0, 60));
         frame->setMaximumSize(QSize(16777215, 60));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
@@ -401,8 +411,8 @@ public:
 
         m_label_timer = new QLabel(frame);
         m_label_timer->setObjectName("m_label_timer");
-        sizePolicy1.setHeightForWidth(m_label_timer->sizePolicy().hasHeightForWidth());
-        m_label_timer->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(m_label_timer->sizePolicy().hasHeightForWidth());
+        m_label_timer->setSizePolicy(sizePolicy);
         m_label_timer->setMaximumSize(QSize(100, 20));
         m_label_timer->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
 
@@ -410,8 +420,8 @@ public:
 
         label_2 = new QLabel(frame);
         label_2->setObjectName("label_2");
-        sizePolicy1.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy);
         label_2->setMaximumSize(QSize(100, 20));
         label_2->setAlignment(Qt::AlignJustify|Qt::AlignVCenter);
 
@@ -419,17 +429,17 @@ public:
 
         m_btn_fun = new QPushButton(frame);
         m_btn_fun->setObjectName("m_btn_fun");
-        sizePolicy1.setHeightForWidth(m_btn_fun->sizePolicy().hasHeightForWidth());
-        m_btn_fun->setSizePolicy(sizePolicy1);
-        m_btn_fun->setMinimumSize(QSize(120, 0));
+        sizePolicy.setHeightForWidth(m_btn_fun->sizePolicy().hasHeightForWidth());
+        m_btn_fun->setSizePolicy(sizePolicy);
+        m_btn_fun->setMinimumSize(QSize(120, 40));
         m_btn_fun->setMaximumSize(QSize(120, 40));
 
         horizontalLayout_2->addWidget(m_btn_fun);
 
         m_btn_OK = new QPushButton(frame);
         m_btn_OK->setObjectName("m_btn_OK");
-        sizePolicy1.setHeightForWidth(m_btn_OK->sizePolicy().hasHeightForWidth());
-        m_btn_OK->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(m_btn_OK->sizePolicy().hasHeightForWidth());
+        m_btn_OK->setSizePolicy(sizePolicy);
         m_btn_OK->setMinimumSize(QSize(120, 0));
         m_btn_OK->setMaximumSize(QSize(120, 40));
 
@@ -437,8 +447,8 @@ public:
 
         m_btn_chanel = new QPushButton(frame);
         m_btn_chanel->setObjectName("m_btn_chanel");
-        sizePolicy1.setHeightForWidth(m_btn_chanel->sizePolicy().hasHeightForWidth());
-        m_btn_chanel->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(m_btn_chanel->sizePolicy().hasHeightForWidth());
+        m_btn_chanel->setSizePolicy(sizePolicy);
         m_btn_chanel->setMinimumSize(QSize(120, 0));
         m_btn_chanel->setMaximumSize(QSize(120, 40));
         m_btn_chanel->setSizeIncrement(QSize(120, 40));
@@ -454,7 +464,7 @@ public:
 
         retranslateUi(PreProcessWidgetClass);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(PreProcessWidgetClass);
@@ -475,10 +485,10 @@ public:
         toolButton_3->setText(QString());
         toolButton_4->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("PreProcessWidgetClass", "\345\237\272\346\234\254\350\256\276\347\275\256", nullptr));
-        toolButton_5->setText(QString());
-        toolButton_6->setText(QString());
-        toolButton_7->setText(QString());
-        toolButton_8->setText(QString());
+        m_toolbtn_add->setText(QString());
+        m_toolbtn_delate->setText(QString());
+        m_toolbtn_up->setText(QString());
+        m_toolbtn_down->setText(QString());
         checkBox->setText(QCoreApplication::translate("PreProcessWidgetClass", "\345\256\236\346\227\266\345\210\267\346\226\260", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("PreProcessWidgetClass", "\345\217\202\346\225\260", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("PreProcessWidgetClass", "\345\217\202\346\225\260\350\256\276\347\275\256", nullptr));

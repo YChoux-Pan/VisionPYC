@@ -73,7 +73,37 @@ int main(int argc, char *argv[])
     g_pathexe = exePath.toUtf8().toStdString();
 
 	//加载文字字体
-	
+	QString fullStyle;
+	// 将所有样式文件路径放在一个列表里
+
+	//需要按照界面控件的最低层到最外层进行qss加载，否则颜色会被覆盖
+	//必须要首先加载widget整体背景
+	QStringList qssFiles = {
+		":/widget.qss",
+		":/tabBar.qss",
+		":/groupBox.qss",
+		":/radiobutton.qss",
+		":/pushbutton.qss",
+		":/lineEdit.qss",
+		":/plainTextEdit.qss",
+		":/toolbutton.qss"
+	};
+
+
+	for (const QString& path : qssFiles) {
+		QFile file(path);
+		if (file.open(QFile::ReadOnly)) {
+			fullStyle.append(file.readAll());
+			file.close();
+		}
+		else {
+			qDebug() << "Failed to load QSS file:" << path;
+		}
+	}
+
+	if (!fullStyle.isEmpty()) {
+		app.setStyleSheet(fullStyle);
+	}
 
 
     window.showMaximized();

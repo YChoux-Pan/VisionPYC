@@ -317,7 +317,7 @@
                         </size>
                        </property>
                        <property name="currentIndex">
-                        <number>0</number>
+                        <number>1</number>
                        </property>
                        <widget class="QWidget" name="page_5">
                         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -347,6 +347,15 @@
                              <horstretch>0</horstretch>
                              <verstretch>0</verstretch>
                             </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>30</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">qproperty-icon:url(:/icon/icon/search-line.svg)</string>
                            </property>
                            <property name="text">
                             <string>...</string>
@@ -378,6 +387,15 @@
                              <verstretch>0</verstretch>
                             </sizepolicy>
                            </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>30</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">qproperty-icon:url(:/icon/icon/attachment-2.svg)</string>
+                           </property>
                            <property name="text">
                             <string>...</string>
                            </property>
@@ -390,6 +408,15 @@
                              <horstretch>0</horstretch>
                              <verstretch>0</verstretch>
                             </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>30</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">qproperty-icon:url(:/icon/icon/close-large-fill.svg)</string>
                            </property>
                            <property name="text">
                             <string>...</string>
@@ -486,6 +513,9 @@
                      </item>
                      <item>
                       <widget class="QToolButton" name="toolButton_4">
+                       <property name="styleSheet">
+                        <string notr="true">qproperty-icon:url(:/icon/icon/attachment-2.svg)</string>
+                       </property>
                        <property name="text">
                         <string>...</string>
                        </property>
@@ -507,67 +537,22 @@
                       <number>6</number>
                      </property>
                      <item>
-                      <widget class="QPushButton" name="m_btn_up">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>25</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="sizeIncrement">
-                        <size>
-                         <width>25</width>
-                         <height>0</height>
-                        </size>
-                       </property>
+                      <widget class="QToolButton" name="m_btn_up">
                        <property name="styleSheet">
-                        <string notr="true">/* 强制复原背景、边框、间距和尺寸限制 */
-background-color: palette(window); /* 恢复系统默认窗口色 */
-border: 1px solid palette(dark);    /* 恢复系统默认边框 */
-color: palette(window-text);        /* 恢复系统默认文字颜色 */
-padding: 1px 6px;                   /* 恢复原生按钮的大致内边距 */
-min-width: 0px;                     /* 撤销全局设置的 60px 限制 */
-outline: none;                      /* 移除焦点虚线框（可选） */</string>
+                        <string notr="true">qproperty-icon:url(:/icon/icon/arrow-up-long-line.svg)</string>
                        </property>
                        <property name="text">
-                        <string>上</string>
-                       </property>
-                       <property name="default">
-                        <bool>false</bool>
-                       </property>
-                       <property name="ignoreGlobal" stdset="0">
-                        <bool>true</bool>
+                        <string>...</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="m_btn_down">
-                       <property name="maximumSize">
-                        <size>
-                         <width>25</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
+                      <widget class="QToolButton" name="m_btn_down">
                        <property name="styleSheet">
-                        <string notr="true">/* 强制复原背景、边框、间距和尺寸限制 */
-background-color: palette(window); /* 恢复系统默认窗口色 */
-border: 1px solid palette(dark);    /* 恢复系统默认边框 */
-color: palette(window-text);        /* 恢复系统默认文字颜色 */
-padding: 1px 6px;                   /* 恢复原生按钮的大致内边距 */
-min-width: 0px;                     /* 撤销全局设置的 60px 限制 */
-outline: none;                      /* 移除焦点虚线框（可选） */</string>
+                        <string notr="true">qproperty-icon:url(:/icon/icon/arrow-down-long-line.svg)</string>
                        </property>
                        <property name="text">
-                        <string>下</string>
-                       </property>
-                       <property name="ignoreGlobal" stdset="0">
-                        <bool>true</bool>
+                        <string>...</string>
                        </property>
                       </widget>
                      </item>
@@ -591,52 +576,22 @@ outline: none;                      /* 移除焦点虚线框（可选） */</str
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="m_btn_timer">
-                       <property name="maximumSize">
-                        <size>
-                         <width>50</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
+                      <widget class="QToolButton" name="m_btn_timer">
                        <property name="styleSheet">
-                        <string notr="true">/* 强制复原背景、边框、间距和尺寸限制 */
-background-color: palette(window); /* 恢复系统默认窗口色 */
-border: 1px solid palette(dark);    /* 恢复系统默认边框 */
-color: palette(window-text);        /* 恢复系统默认文字颜色 */
-padding: 1px 6px;                   /* 恢复原生按钮的大致内边距 */
-min-width: 0px;                     /* 撤销全局设置的 60px 限制 */
-outline: none;                      /* 移除焦点虚线框（可选） */</string>
+                        <string notr="true">qproperty-icon:url(:/icon/icon/history-fill.svg)</string>
                        </property>
                        <property name="text">
-                        <string>Time</string>
-                       </property>
-                       <property name="ignoreGlobal" stdset="0">
-                        <bool>true</bool>
+                        <string>...</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="m_btn_name">
-                       <property name="maximumSize">
-                        <size>
-                         <width>40</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
+                      <widget class="QToolButton" name="m_btn_name">
                        <property name="styleSheet">
-                        <string notr="true">/* 强制复原背景、边框、间距和尺寸限制 */
-background-color: palette(window); /* 恢复系统默认窗口色 */
-border: 1px solid palette(dark);    /* 恢复系统默认边框 */
-color: palette(window-text);        /* 恢复系统默认文字颜色 */
-padding: 1px 6px;                   /* 恢复原生按钮的大致内边距 */
-min-width: 0px;                     /* 撤销全局设置的 60px 限制 */
-outline: none;                      /* 移除焦点虚线框（可选） */</string>
+                        <string notr="true">qproperty-icon:url(:/icon/icon/filter-2-fill.svg)</string>
                        </property>
                        <property name="text">
-                        <string>A-Z</string>
-                       </property>
-                       <property name="ignoreGlobal" stdset="0">
-                        <bool>true</bool>
+                        <string>...</string>
                        </property>
                       </widget>
                      </item>
@@ -935,6 +890,8 @@ outline: none;                      /* 移除焦点虚线框（可选） */</str
    <header location="global">imagelistview.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../Styles/style.qrc"/>
+ </resources>
  <connections/>
 </ui>

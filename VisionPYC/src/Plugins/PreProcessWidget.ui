@@ -6,14 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1509</width>
-    <height>831</height>
+    <width>1465</width>
+    <height>750</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>PreProcessWidget</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_8">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -66,7 +87,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <property name="sizePolicy">
@@ -404,7 +425,7 @@
            </property>
            <item>
             <widget class="QWidget" name="widget_5" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_6">
+             <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,6,6">
               <property name="leftMargin">
                <number>0</number>
               </property>
@@ -448,7 +469,7 @@
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QToolButton" name="toolButton_5">
+                  <widget class="QToolButton" name="m_toolbtn_add">
                    <property name="minimumSize">
                     <size>
                      <width>40</width>
@@ -456,7 +477,8 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">qproperty-icon:url(:/icon/icon/add-large-fill.svg)</string>
+                    <string notr="true">qproperty-icon:url(:/icon/icon/add-large-fill.svg);
+icon-color: white;</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -464,7 +486,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QToolButton" name="toolButton_6">
+                  <widget class="QToolButton" name="m_toolbtn_delate">
                    <property name="minimumSize">
                     <size>
                      <width>40</width>
@@ -480,7 +502,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QToolButton" name="toolButton_7">
+                  <widget class="QToolButton" name="m_toolbtn_up">
                    <property name="minimumSize">
                     <size>
                      <width>40</width>
@@ -496,7 +518,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QToolButton" name="toolButton_8">
+                  <widget class="QToolButton" name="m_toolbtn_down">
                    <property name="minimumSize">
                     <size>
                      <width>40</width>
@@ -552,7 +574,7 @@
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QWidget" name="widget_6" native="true"/>
+                  <widget class="QWidget" name="m_wid_setting" native="true"/>
                  </item>
                 </layout>
                </widget>
@@ -586,6 +608,18 @@
       </item>
       <item>
        <widget class="QFrame" name="frame">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -682,7 +716,7 @@
            <property name="minimumSize">
             <size>
              <width>120</width>
-             <height>0</height>
+             <height>40</height>
             </size>
            </property>
            <property name="maximumSize">

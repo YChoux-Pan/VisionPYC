@@ -216,6 +216,18 @@ void ImageListView::moveRowDown()
 	// 4. 更新索引数字
 	updateIndexColumn();
 }
+void ImageListView::updateHeader(int iheader, QString name)
+{
+	if (m_model)
+	{
+		if (iheader < m_model->rowCount())
+		{
+			m_model->setColumnCount(iheader);
+		}
+		m_model->setHeaderData(iheader, Qt::Horizontal, name);
+	}
+
+}
 void ImageListView::updateIndexColumn()
 {
 	for (int i = 0; i < m_model->rowCount(); ++i) {

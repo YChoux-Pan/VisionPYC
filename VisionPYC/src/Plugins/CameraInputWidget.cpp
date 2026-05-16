@@ -1,14 +1,14 @@
 ﻿#include "CameraInputWidget.h"
 #include <QFile>
 #include <QFileDialog>
-
+#include <QToolButton>
 #include "Global_function.h"
 CameraInputWidget::CameraInputWidget(QWidget *parent)
 	: QWidget(parent),ui(new Ui::CameraInputWidgetClass)
 {
 	ui->setupUi(this);
 
-	applyCustomStyles();
+	//applyCustomStyles();
 
 	InitWidget();
 	
@@ -65,21 +65,21 @@ void CameraInputWidget::InitWidget(void)
 	connect(ui->toolButton_4, &QToolButton::clicked, this, &CameraInputWidget::on_btnSelsctProject_clicked);
 	connect(ui->listView, &ImageListView::itemClickedWithIndex, this, &CameraInputWidget::on_listView_clicked);
 
-	connect(ui->m_btn_up, &QPushButton::clicked, this, [=]() {
+	connect(ui->m_btn_up, &QToolButton::clicked, this, [=]() {
 		ui->listView->moveRowUp(); // 调用提升类的方法
 		});
 
-	connect(ui->m_btn_down, &QPushButton::clicked, this, [=]() {
+	connect(ui->m_btn_down, &QToolButton::clicked, this, [=]() {
 		ui->listView->moveRowDown();
 		});
 
 	// 按照名称升序排序
-	connect(ui->m_btn_name, &QPushButton::clicked, this, [=]() {
+	connect(ui->m_btn_name, &QToolButton::clicked, this, [=]() {
 		ui->listView->sortItems(ImageListView::ByName, true);
 		});
 
 	// 按照修改时间降序排序（最新的在上面）
-	connect(ui->m_btn_timer, &QPushButton::clicked, this, [=]() {
+	connect(ui->m_btn_timer, &QToolButton::clicked, this, [=]() {
 		ui->listView->sortItems(ImageListView::ByTime, false);
 		});
 

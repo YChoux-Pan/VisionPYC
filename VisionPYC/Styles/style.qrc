@@ -8,14 +8,21 @@
         <file>tabBar.qss</file>
         <file>pushbutton.qss</file>
         <file>plainTextEdit.qss</file>
+        <file>toolbutton.qss</file>
     </qresource>
     <qresource prefix="/icon">
         <file>icon/add-fill.svg</file>
         <file>icon/add-large-fill.svg</file>
         <file>icon/add-large-line.svg</file>
         <file>icon/add-line.svg</file>
+        <file>icon/arrow-down-long-line.svg</file>
+        <file>icon/arrow-down-s-fill.svg</file>
         <file>icon/arrow-go-back-fill.svg</file>
         <file>icon/arrow-go-back-line.svg</file>
+        <file>icon/arrow-left-s-fill.svg</file>
+        <file>icon/arrow-right-s-fill.svg</file>
+        <file>icon/arrow-up-long-line.svg</file>
+        <file>icon/arrow-up-s-fill.svg</file>
         <file>icon/attachment-2.svg</file>
         <file>icon/checkbox-blank-circle-line.svg</file>
         <file>icon/checkbox-multiple-blank-fill.svg</file>
@@ -77,7 +84,5 @@
         <file>icon/subtract-line.svg</file>
         <file>icon/toggle-fill.svg</file>
         <file>icon/toggle-line.svg</file>
-        <file>icon/arrow-down-long-line.svg</file>
-        <file>icon/arrow-up-long-line.svg</file>
     </qresource>
 </RCC>
