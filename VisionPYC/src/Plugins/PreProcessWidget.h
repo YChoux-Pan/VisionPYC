@@ -1,8 +1,15 @@
-﻿#pragma once
+#pragma once
 
 #include <QWidget>
+#include <QComboBox>
+#include <QSpinBox>
+#include <QDoubleSpinBox>
+#include <QSlider>
+#include <QLabel>
+#include <opencv2/opencv.hpp>
 #include "ui_PreProcessWidget.h"
-#include "ui_ImageAdjust.h"
+
+class ImageFilterNode;
 
 enum class MainCategory {
 	ImageAdjust,   // 图像调整
@@ -12,63 +19,82 @@ enum class MainCategory {
 	Binary         // 二值化
 };
 
-// 定义二级子项目枚举（将所有子功能放在一起，或者按分类区分均可）
+// 二级子项目枚举
 enum class SubCommand {
-	// 图像调整类
 	ColorToGray, ImageMirror, ImageRotate, DepthToColor, ModifySize,
-	// 滤波类
 	MeanFilter, MedianFilter, GaussianFilter,
-	// 形态学类
 	Expand, Erosion, Opening, Closed,
-	// 图像增强类
 	Sharpen, Contrast, Luminance, Inverse, EdgeEnhancement,
-	// 二值化类
 	BinaryNormal, MeanBinary, ColorBinary
 };
 
-// 核心管理结构体
 struct MenuCommandData {
-	MainCategory mainCat; // 一级目录标示
-	SubCommand subCmd;    // 二级具体指令标示
+	MainCategory mainCat;
+	SubCommand subCmd;
 };
-
-//注册结构体到元对象
 Q_DECLARE_METATYPE(MenuCommandData)
 
+// 图像预处理配置界面：
+//   - 左侧选择算子 + 动态参数面板
+//   - 右侧 ImageViewWidget 预览执行结果
+//   - "执行"：用当前参数处理输入图像并显示
+//   - "确定"：保存参数到节点并关闭
 class PreProcessWidget : public QWidget
 {
 	Q_OBJECT
 
 public:
-	PreProcessWidget(QWidget *parent = nullptr);
+	explicit PreProcessWidget(QWidget* parent = nullptr);
 	~PreProcessWidget();
 
+	void InitDlg();
+	void setNode(ImageFilterNode* node);   // 关联所属节点（不拥有）
 
-	
-
-	void InitDlg();//初始化
-	void clearSettingArea();//界面清理
 private:
+	void clearSettingArea();
+	void updateOperation(MenuCommandData data);
+	// 生成当前算子的参数面板（动态控件）
+	QWidget* buildParamPanel(const QString& cmd, MenuCommandData data);
+	// 界面控件值 -> 节点参数模型
+	void applyCurrentParamsToNode();
+	// 节点参数模型 -> 界面控件
+	void syncParamsFromNodeToUI();
+
 	Ui::PreProcessWidgetClass ui;
-	//算子参数ui
-	QWidget* m_currentSettingWidget = NULL;
-	Ui::ImageAdjust* m_uiAdjust = nullptr;
+	QWidget* m_currentSettingWidget = nullptr;
+	QMenu* m_mainMenu = nullptr;
+	ImageFilterNode* m_node = nullptr;
+	MenuCommandData m_currentCommand;
+	bool m_paramSyncing = false;   // 防止同步时信号触发回写
 
-	//算子菜单栏
-	QMenu* m_mainMenu = NULL;
+	// 参数控件引用（应用/读取时使用）
+	QComboBox* m_cmbGrayMode = nullptr;
+	QComboBox* m_cmbFlip = nullptr;
+	QComboBox* m_cmbRotate = nullptr;
+	QDoubleSpinBox* m_spinScale = nullptr;
+	QSpinBox* m_spinWidth = nullptr;
+	QSpinBox* m_spinHeight = nullptr;
+	QComboBox* m_cmbKernel = nullptr;
+	QDoubleSpinBox* m_spinSigma = nullptr;
+	QComboBox* m_cmbMorphKernel = nullptr;
+	QSpinBox* m_spinIterations = nullptr;
+	QSlider* m_sliderAlpha = nullptr;
+	QLabel* m_labelAlpha = nullptr;
+	QSlider* m_sliderBeta = nullptr;
+	QLabel* m_labelBeta = nullptr;
+	QSlider* m_sliderThreshold = nullptr;
+	QLabel* m_labelThreshold = nullptr;
+	QComboBox* m_cmbBinaryType = nullptr;
+	QSpinBox* m_spinAdaptKernel = nullptr;
+	QSpinBox* m_spinAdaptOffset = nullptr;
 
+	// 将算子枚举转显示名
+	static QString commandName(SubCommand cmd);
 
-	void updateOperation(MenuCommandData m_Data);//运算核心
 private slots:
-	// 4. 统一的公共槽函数
 	void onMenuActionTriggered();
 	void onToolButtonClicked();
-
-	void on_m_btn_fun_clicked();//执行
-
-
+	void on_m_btn_fun_clicked();      // 执行
+	void on_m_btn_OK_clicked();       // 确定（保存配置并关闭）
+	void on_m_btn_chanel_clicked();   // 取消
 };
-
-//// 关键步骤：为了让自定义结构体能塞进 QAction 的 QVariant 中，需要向 Qt 注册该类型
-//Q_DECLARE_METATYPE(PreProcessWidget::MenuCommandData)
-

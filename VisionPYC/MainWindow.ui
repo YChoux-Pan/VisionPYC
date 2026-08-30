@@ -34,7 +34,7 @@
     </item>
     <item>
      <widget class="QWidget" name="widget_2" native="true">
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2,6">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,3,6">
        <item>
         <widget class="NodeSelectorWidget" name="nodeSelectorWidget" native="true"/>
        </item>
@@ -42,7 +42,7 @@
         <widget class="WorkflowTreeWidget" name="workFlowTreeWidget" native="true"/>
        </item>
        <item>
-        <widget class="QOpenGLWidget" name="openGLWidget"/>
+        <widget class="ImageViewWidget" name="imageViewWidget" native="true"/>
        </item>
       </layout>
      </widget>
@@ -101,7 +101,13 @@
    <header location="global">workflowtreewidget.h</header>
    <container>1</container>
   </customwidget>
- </customwidgets>
+   <customwidget>
+    <class>ImageViewWidget</class>
+    <extends>QWidget</extends>
+    <header location="global">imageviewwidget.h</header>
+    <container>1</container>
+   </customwidget>
+  </customwidgets>
  <resources>
   <include location="MainWindow.qrc"/>
  </resources>

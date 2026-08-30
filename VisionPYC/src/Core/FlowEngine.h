@@ -50,6 +50,7 @@ signals:
 	void nodeAdded(const QString& id, int index);
 	void nodeRemoved(const QString& id, int index);
 	void nodeMoved(const QString& id, int from, int to);
+	void modelCleared();
 	// 执行状态
 	void nodeStarted(const QString& id, int index);
 	void nodeFinished(const QString& id, int index, bool ok, qint64 ms);

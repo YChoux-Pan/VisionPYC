@@ -2147,6 +2147,7 @@ void ImageViewWidget::showOriginalImage()
 void ImageViewWidget::clearImage()
 {
 	m_image = QImage();
+	m_cvImage = cv::Mat();
 	m_scaledPixmap = QPixmap();
 	update();
 }

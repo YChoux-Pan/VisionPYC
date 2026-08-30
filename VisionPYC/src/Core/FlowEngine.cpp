@@ -22,6 +22,7 @@ FlowEngine::FlowEngine()
 	connect(m_model, &FlowModel::nodeAdded, this, &FlowEngine::nodeAdded);
 	connect(m_model, &FlowModel::nodeRemoved, this, &FlowEngine::nodeRemoved);
 	connect(m_model, &FlowModel::nodeMoved, this, &FlowEngine::nodeMoved);
+	connect(m_model, &FlowModel::modelCleared, this, &FlowEngine::modelCleared);
 
 	// worker 信号回传 GUI 线程（queued connection 自动跨线程）
 	connect(m_worker, &FlowWorker::flowFinished, this, &FlowEngine::onWorkerFinished,

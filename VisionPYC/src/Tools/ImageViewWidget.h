@@ -27,6 +27,7 @@ public:
 	bool loadImage(const QString& filePath);  // 打开图像（不支持中文路径）
 	void setImage(const QImage& image);       // 设置图像（外部传入）
 	void updatedisplayMat(const cv::Mat& mat); //图像显示接口
+	void clearImage();                        // 清空当前显示图像（含内部 Mat）
 
 	const QImage& image() const { return m_image; } // 获取当前图像
 	// 外部访问接口
@@ -196,7 +197,6 @@ private:
 	void updateScaledImage(bool keepOffset); // 更新缩放后图像
 	void fitImageToWidget();  // 重置图像显示
 	void showOriginalImage(); //显示原始图像
-	void clearImage();        //清空图像
 
 	// ===================== 新增一维测量私有方法 =====================
 	void drawMeasureTool(QPainter& painter);  // 绘制测量工具

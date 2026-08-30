@@ -126,6 +126,7 @@
     <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp" />
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp" />
     <ClCompile Include="src\Plugins\PreProcessWidget.cpp" />
+    <ClCompile Include="src\Plugins\PreprocessCore.cpp" />
     <ClCompile Include="src\Plugins\RoiWidget.cpp" />
     <ClCompile Include="src\Tools\AutoWrapLabel.cpp" />
     <ClCompile Include="src\Tools\ImageListView.cpp">
@@ -172,6 +173,7 @@
     <QtMoc Include="src\Plugins\Planeness3DWidget.h" />
     <QtMoc Include="src\Plugins\RoiWidget.h" />
     <QtMoc Include="src\Plugins\PreProcessWidget.h" />
+    <ClInclude Include="src\Plugins\PreprocessCore.h" />
     <QtMoc Include="src\GUI\CollapsibleCategory.h" />
     <QtMoc Include="src\GUI\WorkflowTreeWidget.h" />
     <ClInclude Include="src\Plugins\BaseAlgorithmNode.h" />

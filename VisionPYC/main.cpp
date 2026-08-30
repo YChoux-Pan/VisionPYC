@@ -6,6 +6,8 @@
 #include "NodeRegistry.h"
 #include "IFlowNode.h"
 #include "NodeData.h"
+#include "PreprocessCore.h"
+#include "ImageFilterNode.h"
 #include <QEventLoop>
 #include <QTimer>
 #include <QElapsedTimer>
@@ -107,12 +109,14 @@ public:
 	bool process() override {
 		auto src = std::dynamic_pointer_cast<ImageData>(m_inputs[0]);
 		m_lastResult = (src && !src->image.empty() && src->image.cols == 16);
+		if (src && !src->image.empty()) lastChannels = src->image.channels();
 		return m_lastResult;
 	}
 	void setInput(int portIndex, std::shared_ptr<INodeData> data) override {
 		m_inputs[portIndex] = std::move(data);
 	}
 	std::shared_ptr<INodeData> getOutput(int) override { return nullptr; }
+	int lastChannels = 0;
 private:
 	std::map<int, std::shared_ptr<INodeData>> m_inputs;
 };
@@ -207,7 +211,69 @@ static int runSelfTest()
 	loop3.exec();
 	check(runningSeen, "执行期间 runningChanged 信号正确发射");
 
+	// 8. 预处理算法核心验证（20 个算子全部可执行）
+	{
+		cv::Mat testImg(64, 64, CV_8UC3, cv::Scalar(100, 150, 200));
+		cv::rectangle(testImg, cv::Rect(16, 16, 32, 32), cv::Scalar(20, 60, 120), -1);
+
+		const QStringList cmds = {
+			"灰度处理", "图像镜像", "图像旋转", "深度转彩色", "修改尺寸",
+			"均值滤波", "中值滤波", "高斯滤波",
+			"灰度膨胀", "灰度腐蚀", "灰度开运算", "灰度闭运算",
+			"锐化", "对比度", "亮度调节", "反色", "边缘增强",
+			"二值化", "均值二值化", "彩色二值化"
+		};
+		int okCount = 0;
+		QString failedList;
+		for (const QString& cmd : cmds) {
+			PreprocessParams p;
+			p.command = cmd;
+			p.threshold = 100;
+			cv::Mat dst;
+			if (applyPreprocess(testImg, p, dst) && !dst.empty())
+				++okCount;
+			else
+				failedList += cmd + " ";
+		}
+		check(okCount == cmds.size(),
+			QString("预处理算子全部可用：%1/%2%3").arg(okCount).arg(cmds.size())
+			.arg(failedList.isEmpty() ? "" : "（失败:" + failedList + "）"));
+	}
+
 	engine.clear();
+
+	// 9. 端到端流程：测试源 -> 图像预处理(灰度) -> 测试汇
+	{
+		engine.clear();
+		engine.addNode("_TestSource");
+		const QString preId = engine.addNode("图像预处理");
+		const QString sinkId = engine.addNode("_TestSink");
+
+		// 设置预处理参数：灰度处理（单通道输出）
+		auto* preNode = dynamic_cast<ImageFilterNode*>(engine.node(preId));
+		if (preNode) {
+			PreprocessParams p;
+			p.command = "灰度处理";
+			p.grayMode = 0;
+			preNode->setParams(p);
+		}
+
+		bool ok = false;
+		QObject::connect(&engine, &FlowEngine::flowFinished, &engine,
+			[&](bool o) { ok = o; });
+		engine.runAsync();
+		QEventLoop loop9;
+		QObject::connect(&engine, &FlowEngine::flowFinished, &loop9, &QEventLoop::quit);
+		QTimer::singleShot(5000, &loop9, &QEventLoop::quit);
+		loop9.exec();
+
+		check(ok, "端到端流程：源 -> 图像预处理(灰度) -> 汇 执行成功");
+
+		auto* sink = dynamic_cast<TestSinkNode*>(engine.node(sinkId));
+		check(sink && sink->lastChannels == 1, "预处理输出为单通道灰度图（通道数=1）");
+		engine.clear();
+	}
+
 	qInfo().noquote() << QString("=========== 自检完成：失败 %1 项 ===========").arg(failures);
 	return failures;
 }

@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QToolButton>
+#include <QMessageBox>
 #include "Global_function.h"
 CameraInputWidget::CameraInputWidget(QWidget *parent)
 	: QWidget(parent),ui(new Ui::CameraInputWidgetClass)
@@ -83,7 +84,8 @@ void CameraInputWidget::InitWidget(void)
 		ui->listView->sortItems(ImageListView::ByTime, false);
 		});
 
-	/*connect(ui->m_btn_OK, &QPushButton::clicked, this, &QWidget::close);*/
+	// 确定：保存当前配置（当前选中的图像）并关闭
+	connect(ui->m_btn_OK, &QPushButton::clicked, this, &CameraInputWidget::on_m_btn_OK_clicked);
 	connect(ui->m_btn_chanel, &QPushButton::clicked, this, &QWidget::close);
 
 
@@ -164,26 +166,35 @@ void CameraInputWidget::on_btnSelsctProject_clicked()
 
 void CameraInputWidget::on_m_btn_fun_clicked()
 {
-	//读取图片
+	//执行：显示当前图像并刷新耗时
 	int64 start = cv::getTickCount();
-	if (m_fun)
+
+	// 若 Mat 为空但 QImage 可用（例如直接选择文件场景），回填 Mat
 	{
-		//后续再进行填充
-		//主要是点击了后，流程能够输出下一组数据
+		QMutexLocker locker(&m_imgMutex);
+		if (m_CImg.empty() && !m_QImg.isNull()) {
+			cv::Mat rgb;
+			cv::Mat(m_QImg.height(), m_QImg.width(), CV_8UC3,
+				(void*)m_QImg.constBits(), static_cast<size_t>(m_QImg.bytesPerLine())).copyTo(rgb);
+			cv::cvtColor(rgb, m_CImg, cv::COLOR_RGB2BGR);
+		}
 	}
 
-
-	if (m_QImg.isNull())  
-	{
-		qDebug() << "m_QImg 图像为空";
-		//图像为空
+	if (m_CImg.empty()) {
+		qDebug() << "m_CImg 图像为空";
+		QMessageBox::warning(this, "提示", "请先选择一张图像（文件或文件夹列表）。");
 		return;
 	}
-	ui->widget_3->setImage(m_QImg);
+
+	// 显示当前图像
+	{
+		QMutexLocker locker(&m_imgMutex);
+		ui->widget_3->updatedisplayMat(m_CImg);
+	}
+
 	int64 end = cv::getTickCount();
 	m_timer = (end - start) * 1000 / cv::getTickFrequency();
-	QString m_STimers = QString(tr("耗时: %1 ms")).arg(m_timer, 0, 'f', 2);
-	
+	QString m_STimers = QString(tr("执行成功，耗时: %1 ms")).arg(m_timer, 0, 'f', 2);
 	ui->m_label_timer->setText(m_STimers);
 }
 
@@ -224,11 +235,13 @@ void CameraInputWidget::on_btnSelectFile_clicked()
 	if (!filePath.isEmpty()) {
 		// 3. 将路径显示在 Edit 控件中
 		ui->label_7->setText(filePath);
+		// 修复：先记录路径，再加载（避免首次点击时 m_FilePath 为空导致加载失败）
+		m_FilePath = filePath;
 		{
 			QMutexLocker locker(&m_imgMutex);
 			loadAndPrepareImage(m_FilePath, m_CImg, m_QImg);
 		}
-		m_FilePath = filePath;
+		ui->widget_3->setImage(m_QImg);
 	}
 
 }
