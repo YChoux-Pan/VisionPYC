@@ -1,19 +1,15 @@
-﻿#include "WorkflowTreeWidget.h"
-#include "NodeFactory.h"
-#include "BaseAlgorithmNode.h"
-#include "CoreManager.h"
+#include "WorkflowTreeWidget.h"
+#include "FlowEngine.h"
+#include "IFlowNode.h"
 #include <QHeaderView>
 #include <QMimeData>
-#include <QDialog>
-#include <QVBoxLayout>
-#include <QPushButton>
-#include <QPainter>
-#include <QMimeData>
+#include <QMenu>
+#include <QDebug>
 
 WorkflowTreeWidget::WorkflowTreeWidget(QWidget* parent) : QTreeWidget(parent) {
 	// 1. 基础列配置
 	setColumnCount(2);
-	setHeaderLabels({ "流程步骤", "逻辑绑定" });
+	setHeaderLabels({ "流程步骤", "状态/耗时" });
 
 	// 2. 开启拖放功能 (针对 Qt 6 优化的组合设置)
 	setDragEnabled(true);                // 允许拖出
@@ -35,10 +31,26 @@ WorkflowTreeWidget::WorkflowTreeWidget(QWidget* parent) : QTreeWidget(parent) {
 		"QTreeWidget::item { height: 45px; border-bottom: 1px solid #3a3a3a; }"
 		"QTreeWidget::item:selected { background-color: #3d3d3d; border-left: 3px solid #00ff00; color: white; }"
 	);
+
+	// 4. 与流程引擎联动：状态刷新 / 运行期间禁用编辑
+	connect(&FlowEngine::instance(), &FlowEngine::nodeStarted, this,
+		[this](const QString& id, int) {
+			updateItemState(id, "运行中...", Qt::yellow);
+		});
+	connect(&FlowEngine::instance(), &FlowEngine::nodeFinished, this,
+		[this](const QString& id, int, bool ok, qint64 ms) {
+			updateItemState(id,
+				ok ? QString("OK (%1 ms)").arg(ms) : QString("失败"),
+				ok ? QColor(0, 200, 0) : QColor(255, 90, 90));
+		});
+	connect(&FlowEngine::instance(), &FlowEngine::runningChanged, this,
+		[this](bool running) {
+			setEnabled(!running);   // 运行中锁定流程树，防止编辑造成数据竞争
+		});
 }
 
 void WorkflowTreeWidget::dragEnterEvent(QDragEnterEvent* event) {
-	// 只接受带有文本（internalName）的数据
+	// 只接受带有文本（typeKey）的数据
 	if (event->mimeData()->hasText()) {
 		event->acceptProposedAction();
 	}
@@ -49,56 +61,41 @@ void WorkflowTreeWidget::dragMoveEvent(QDragMoveEvent* event) {
 }
 
 void WorkflowTreeWidget::dropEvent(QDropEvent* event) {
-	// 情况 A：数据来自外部（算子库拖入）
+	// 情况 A：数据来自算子库（外部拖入）
 	if (event->source() != this) {
-		// 1. 获取拖拽的算子名称 (对应 OperatorButton 设置的 internalName)
-		QString typeName = event->mimeData()->text();
+		const QString typeKey = event->mimeData()->text();
 
-		// 2. 使用插件工厂创建算法实例 (Plugins 模块)
-		BaseAlgorithmNode* newNode = NodeFactory::createNode(typeName);
-
-		if (newNode) {
-			// 3. 创建树节点并显示 (GUI 模块)
-			QTreeWidgetItem* item = new QTreeWidgetItem();
-			item->setText(0, newNode->modelName()); // 第一列：算子名称
-			item->setText(1, "等待运行...");          // 第二列：状态描述
-
-			// 关键：将算法实例指针绑定到 Item 中，方便双击和运行逻辑调用
-			// 注意：QVariant 不直接支持原始指针，我们转为 void* 存储
-			item->setData(0, Qt::UserRole, QVariant::fromValue((void*)newNode));
-
-			// 4. 确定插入位置：是插入到某个节点后面，还是追加到末尾
-			QTreeWidgetItem* targetItem = itemAt(event->position().toPoint());
-			if (targetItem) {
-				int index = indexOfTopLevelItem(targetItem);
-				insertTopLevelItem(index, item);
-			}
-			else {
-				addTopLevelItem(item);
-			}
-
-			// 5. 通知逻辑层注册该节点 (Core 模块)
-			// 注意：这里需要确保你的 CoreManager 能够处理线性顺序
-			QString newId = QUuid::createUuid().toString(); // 先生成字符串 ID
-
-			CoreManager::instance().onNodeAdded(
-				std::shared_ptr<IFlowNode>(newNode, [](IFlowNode*) {}),
-				newId
-			);
-
-			// 记得把这个 ID 也存在 QTreeWidgetItem 里，方便以后查找
-			item->setData(0, Qt::UserRole + 1, newId);
-
-			event->acceptProposedAction();
+		// 1. 委托流程引擎创建节点实例
+		const QString id = FlowEngine::instance().addNode(typeKey);
+		if (id.isEmpty()) {
+			event->ignore();
+			return;
 		}
-	}
-	// B. 处理内部排序（长按拖动换位）
-	else {
-		// 调用基类 QTreeWidget 的原生处理逻辑完成换位
-		QTreeWidget::dropEvent(event);
 
-		// 【建议】换位结束后，调用一个同步函数刷新 CoreManager 里的执行顺序
-		// syncOrderToCore(); 
+		// 2. 创建树节点（仅保存节点 ID）
+		auto* node = FlowEngine::instance().node(id);
+		auto* item = new QTreeWidgetItem();
+		item->setText(0, node ? node->displayName() : typeKey);
+		item->setText(1, "等待运行...");
+		item->setData(0, Qt::UserRole, id);
+
+		// 3. 确定插入位置：是插入到某个节点后面，还是追加到末尾
+		QTreeWidgetItem* targetItem = itemAt(event->position().toPoint());
+		if (targetItem) {
+			const int index = indexOfTopLevelItem(targetItem);
+			insertTopLevelItem(index, item);
+			// 引擎中节点默认追加到末尾，若插入中间需同步移动
+			FlowEngine::instance().moveNode(id, index);
+		}
+		else {
+			addTopLevelItem(item);
+		}
+		event->acceptProposedAction();
+	}
+	// 情况 B：内部排序（长按拖动换位）
+	else {
+		QTreeWidget::dropEvent(event);
+		syncOrderToEngine();   // 拖拽结束后将 UI 顺序同步给引擎
 	}
 }
 
@@ -106,32 +103,83 @@ void WorkflowTreeWidget::mouseDoubleClickEvent(QMouseEvent* event) {
 	QTreeWidgetItem* item = itemAt(event->pos());
 	if (!item) return;
 
-	// 提取出对应的算法节点指针
-	BaseAlgorithmNode* node = static_cast<BaseAlgorithmNode*>(item->data(0, Qt::UserRole).value<void*>());
-	if (node) {
-		// 创建居中弹窗配置界面
-		QWidget* clientUI = node->getConfigWidget();
-		if (!clientUI) return;
+	const QString id = item->data(0, Qt::UserRole).toString();
+	if (!id.isEmpty()) showConfigDialog(id);
+}
 
-		// 2. 设置窗口属性：使其成为一个独立的窗口，且拥有最小化、最大化和关闭按钮
-		// Qt::Window: 声明这是一个独立窗口
-		// Qt::WindowMinMaxButtonsHint: 显示放大缩小按钮
-		// Qt::WindowCloseButtonHint: 显示关闭按钮
-		clientUI->setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
-
-		// 3. 设置窗口标题（会显示在标题栏）
-		clientUI->setWindowTitle("参数配置 - " + item->text(0));
-
-		// 4. 设置初始大小（你可以根据需要动态设置）
-		// 如果想让它有最小尺寸限制：
-		clientUI->setMinimumSize(200, 100);
-		clientUI->resize(900, 600); // 初始默认大小
-
-		// 5. 居中显示（可选）
-		// 如果不设置，它通常会出现在屏幕左上角或上次关闭的位置
-		clientUI->show();
-		clientUI->activateWindow(); // 确保窗口提到最前方并获得焦点
+void WorkflowTreeWidget::keyPressEvent(QKeyEvent* event) {
+	if (event->key() == Qt::Key_Delete) {
+		auto* item = currentItem();
+		if (item) {
+			const QString id = item->data(0, Qt::UserRole).toString();
+			if (FlowEngine::instance().removeNode(id))
+				delete item;
+		}
+		return;
 	}
+	QTreeWidget::keyPressEvent(event);
+}
+
+void WorkflowTreeWidget::contextMenuEvent(QContextMenuEvent* event) {
+	QTreeWidgetItem* item = itemAt(event->pos());
+	if (!item) return;
+	const QString id = item->data(0, Qt::UserRole).toString();
+	if (id.isEmpty()) return;
+
+	QMenu menu(this);
+	QAction* actConfig = menu.addAction("参数配置...");
+	QAction* actUp = menu.addAction("上移");
+	QAction* actDown = menu.addAction("下移");
+	menu.addSeparator();
+	QAction* actDelete = menu.addAction("删除节点");
+
+	QAction* chosen = menu.exec(event->globalPos());
+	if (!chosen) return;
+
+	if (chosen == actConfig) {
+		showConfigDialog(id);
+	}
+	else if (chosen == actUp) {
+		const int idx = indexOfTopLevelItem(item);
+		if (idx > 0 && FlowEngine::instance().moveNode(id, idx - 1)) {
+			QTreeWidgetItem* taken = takeTopLevelItem(idx);
+			insertTopLevelItem(idx - 1, taken);
+			setCurrentItem(taken);
+		}
+	}
+	else if (chosen == actDown) {
+		const int idx = indexOfTopLevelItem(item);
+		if (idx < topLevelItemCount() - 1 && FlowEngine::instance().moveNode(id, idx + 1)) {
+			QTreeWidgetItem* taken = takeTopLevelItem(idx);
+			insertTopLevelItem(idx + 1, taken);
+			setCurrentItem(taken);
+		}
+	}
+	else if (chosen == actDelete) {
+		if (FlowEngine::instance().removeNode(id))
+			delete item;
+	}
+}
+
+void WorkflowTreeWidget::showConfigDialog(const QString& id) {
+	auto* node = FlowEngine::instance().node(id);
+	if (!node) return;
+
+	QWidget* clientUI = node->createConfigWidget();
+	if (!clientUI) return;
+
+	// 防止重复弹出同一个节点的配置窗口
+	if (clientUI->isVisible()) {
+		clientUI->activateWindow();
+		return;
+	}
+
+	clientUI->setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
+	clientUI->setWindowTitle("参数配置 - " + node->displayName());
+	clientUI->setMinimumSize(200, 100);
+	clientUI->resize(900, 600);
+	clientUI->show();
+	clientUI->activateWindow();
 }
 
 void WorkflowTreeWidget::paintEvent(QPaintEvent* event) {
@@ -174,4 +222,28 @@ void WorkflowTreeWidget::drawFlowLinks(QPainter* painter) {
 		painter->drawLine(lineX, yEnd, lineX - 6, yEnd - 8);
 		painter->drawLine(lineX, yEnd, lineX + 6, yEnd - 8);
 	}
+}
+
+QTreeWidgetItem* WorkflowTreeWidget::findItem(const QString& id) const {
+	for (int i = 0; i < topLevelItemCount(); ++i) {
+		auto* it = topLevelItem(i);
+		if (it->data(0, Qt::UserRole).toString() == id)
+			return it;
+	}
+	return nullptr;
+}
+
+void WorkflowTreeWidget::updateItemState(const QString& id, const QString& text, const QColor& color) {
+	auto* it = findItem(id);
+	if (!it) return;
+	it->setText(1, text);
+	it->setForeground(1, color);
+}
+
+void WorkflowTreeWidget::syncOrderToEngine() {
+	QVector<QString> ids;
+	for (int i = 0; i < topLevelItemCount(); ++i) {
+		ids << topLevelItem(i)->data(0, Qt::UserRole).toString();
+	}
+	FlowEngine::instance().syncOrder(ids);
 }

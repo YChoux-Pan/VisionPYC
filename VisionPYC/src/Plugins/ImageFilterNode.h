@@ -1,21 +1,25 @@
 ﻿#pragma once
 #include "BaseAlgorithmNode.h"
 
+// 图像检测类算子：图像预处理 / ROI设置 / 采集图像
+// 通过注册宏 REGISTER_NODE 以多个 typeKey 注册同一实现
 class ImageFilterNode : public BaseAlgorithmNode {
 public:
-	// 构造时传入小模块的名称 (例如 "GaussianBlur" 或 "Threshold")
-	explicit ImageFilterNode(QString subType);
+	explicit ImageFilterNode(QString subType = QString());
 
-	QString category() const override { return "图像处理"; }
-	QString modelName() const override { return m_subType; }
+	QString typeKey() const override { return m_subType; }
+	QString displayName() const override { return m_subType; }
+	QString category() const override { return "图像检测"; }
 
-	// 核心中转：运行算法
-	void process() override;
+	QVector<FlowPort> inputPorts() const override;
+	QVector<FlowPort> outputPorts() const override;
 
-	// 核心中转：获取对应的 UI 控件
-	QWidget* getConfigWidget() override;
+	bool process() override;
+	QWidget* createConfigWidget() override;
+	QJsonObject saveParams() const override;
+	void loadParams(const QJsonObject&) override;
 
 private:
-	QString m_subType;        // 记录具体的小模块身份
-	QWidget* m_cachedWidget = nullptr; // 缓存已经创建的 UI，避免重复创建
+	QString m_subType;               // 具体小模块身份（typeKey）
+	QWidget* m_cachedWidget = nullptr; // 缓存已创建的配置界面，避免重复创建
 };

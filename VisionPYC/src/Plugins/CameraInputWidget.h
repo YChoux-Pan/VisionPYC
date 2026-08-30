@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 #include <QWidget>
+#include <QMutex>
+#include <opencv2/opencv.hpp>
 #include "ui_CameraInputWidget.h"
 #include "Global.h"
 
@@ -14,6 +16,11 @@ public:
 
 	void InitWidget();//界面初始化
 	void applyCustomStyles();//qss初始化
+
+	// --- 算法侧访问接口（供流程引擎在 worker 线程调用，线程安全）---
+	bool hasImage() const { QMutexLocker l(&m_imgMutex); return !m_CImg.empty(); }
+	cv::Mat currentImage() const { QMutexLocker l(&m_imgMutex); return m_CImg.clone(); }
+
 private:
 	Ui::CameraInputWidgetClass *ui;
 
@@ -22,6 +29,7 @@ private:
 	QStringList fileList;//文件路径容器
 	QImage m_QImg;
 	cv::Mat m_CImg;
+	mutable QMutex m_imgMutex;   // 保护 m_CImg（GUI 写 / worker 读）
 	bool m_fun = false;//是否开启循环
 	double m_timer = 0.0f;
 	

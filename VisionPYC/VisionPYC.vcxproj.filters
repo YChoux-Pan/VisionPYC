@@ -103,22 +103,19 @@
     <ClCompile Include="src\Common\CommonUtils.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\NodeDataModel.cpp">
+    <ClCompile Include="src\Core\NodeRegistry.cpp">
       <Filter>Src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\FlowGraph.cpp">
+    <ClCompile Include="src\Core\FlowModel.cpp">
       <Filter>Src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\GraphExecutor.cpp">
+    <ClCompile Include="src\Core\FlowWorker.cpp">
       <Filter>Src\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\CoreManager.cpp">
+    <ClCompile Include="src\Core\FlowEngine.cpp">
       <Filter>Src\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp">
-      <Filter>Src\Plugins</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Plugins\NodeFactory.cpp">
       <Filter>Src\Plugins</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp">
@@ -148,7 +145,7 @@
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
       <Filter>Src\Plugins\3D检测\平面度检测</Filter>
     </ClCompile>
-    <ClCompile Include="_3DProcessNode.cpp">
+    <ClCompile Include="src\Plugins\_3DProcessNode.cpp">
       <Filter>Src\Plugins\3D检测</Filter>
     </ClCompile>
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp">
@@ -189,22 +186,25 @@
     <ClInclude Include="src\Common\CommonUtils.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\NodeDataModel.h">
+    <ClInclude Include="src\Common\FlowPort.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Common\NodeData.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\NodeRegistry.h">
       <Filter>Src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\FlowGraph.h">
+    <ClInclude Include="src\Core\FlowModel.h">
       <Filter>Src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\GraphExecutor.h">
+    <ClInclude Include="src\Core\FlowWorker.h">
       <Filter>Src\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\CoreManager.h">
+    <ClInclude Include="src\Core\FlowEngine.h">
       <Filter>Src\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Plugins\BaseAlgorithmNode.h">
-      <Filter>Src\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Plugins\NodeFactory.h">
       <Filter>Src\Plugins</Filter>
     </ClInclude>
     <ClInclude Include="src\Plugins\ImageFilterNode.h">

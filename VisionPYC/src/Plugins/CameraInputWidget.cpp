@@ -195,8 +195,11 @@ void CameraInputWidget::on_listView_clicked(int row)
 		qDebug() << "文件获取失败";
 		return;
 	}
-	QString path = m_FileProject +"/" + fileList[row];
-	loadAndPrepareImage(path, m_CImg, m_QImg);
+	QString path = m_FileProject + "/" + fileList[row];
+	{
+		QMutexLocker locker(&m_imgMutex);
+		loadAndPrepareImage(path, m_CImg, m_QImg);
+	}
 	ui->widget_3->setImage(m_QImg);
 }
 
@@ -221,7 +224,10 @@ void CameraInputWidget::on_btnSelectFile_clicked()
 	if (!filePath.isEmpty()) {
 		// 3. 将路径显示在 Edit 控件中
 		ui->label_7->setText(filePath);
-		loadAndPrepareImage(m_FilePath, m_CImg, m_QImg);
+		{
+			QMutexLocker locker(&m_imgMutex);
+			loadAndPrepareImage(m_FilePath, m_CImg, m_QImg);
+		}
 		m_FilePath = filePath;
 	}
 

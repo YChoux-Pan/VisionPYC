@@ -60,11 +60,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>..\VisionPYC\src\Common;..\VisionPYC\src\Core;..\VisionPYC\src\GUI;..\VisionPYC\src\Plugins;..\VisionPYC\src\Tools;..\00_SDK\OpenCV\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\00_SDK\OpenCV\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <IncludePath>..\VisionPYC\src\Common;..\VisionPYC\src\Core;..\VisionPYC\src\GUI;..\VisionPYC\src\Plugins;..\VisionPYC\src\Tools;..\00_SDK\OpenCV\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\00_SDK\OpenCV\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>opencv_world4100.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
       <AdditionalDependencies>opencv_world4100.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -76,6 +83,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>CV_IGNORE_DEBUG_BUILD_GUARD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,17 +113,16 @@
     <ClCompile Include="src\Common\GlobalDef.cpp" />
     <ClCompile Include="src\Common\IFlowNode.cpp" />
     <ClCompile Include="src\Common\INodeData.cpp" />
-    <ClCompile Include="src\Core\CoreManager.cpp" />
-    <ClCompile Include="src\Core\FlowGraph.cpp" />
-    <ClCompile Include="src\Core\GraphExecutor.cpp" />
-    <ClCompile Include="src\Core\NodeDataModel.cpp" />
+    <ClCompile Include="src\Core\NodeRegistry.cpp" />
+    <ClCompile Include="src\Core\FlowModel.cpp" />
+    <ClCompile Include="src\Core\FlowWorker.cpp" />
+    <ClCompile Include="src\Core\FlowEngine.cpp" />
     <ClCompile Include="src\GUI\CollapsibleCategory.cpp" />
     <ClCompile Include="src\GUI\WorkflowTreeWidget.cpp" />
     <ClCompile Include="src\Plugins\BaseAlgorithmNode.cpp" />
     <ClCompile Include="src\Plugins\CameraInputWidget.cpp" />
     <ClCompile Include="src\Plugins\Height3DWidget.cpp" />
     <ClCompile Include="src\Plugins\ImageFilterNode.cpp" />
-    <ClCompile Include="src\Plugins\NodeFactory.cpp" />
     <ClCompile Include="src\Plugins\NodeSelectorWidget.cpp" />
     <ClCompile Include="src\Plugins\Planeness3DWidget.cpp" />
     <ClCompile Include="src\Plugins\PreProcessWidget.cpp" />
@@ -129,7 +136,7 @@
     </ClCompile>
     <ClCompile Include="src\Tools\ImageViewWidget.cpp" />
     <ClCompile Include="src\Tools\OperatorButton.cpp" />
-    <ClCompile Include="_3DProcessNode.cpp" />
+    <ClCompile Include="src\Plugins\_3DProcessNode.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtRcc Include="Styles\style.qrc" />
     <QtUic Include="MainWindow.ui" />
@@ -149,12 +156,14 @@
     <ClInclude Include="Global_function.h" />
     <ClInclude Include="src\Common\CommonUtils.h" />
     <ClInclude Include="src\Common\GlobalDef.h" />
+    <ClInclude Include="src\Common\FlowPort.h" />
+    <ClInclude Include="src\Common\NodeData.h" />
     <ClInclude Include="src\Common\IFlowNode.h" />
     <ClInclude Include="src\Common\INodeData.h" />
-    <ClInclude Include="src\Core\CoreManager.h" />
-    <ClInclude Include="src\Core\FlowGraph.h" />
-    <ClInclude Include="src\Core\GraphExecutor.h" />
-    <ClInclude Include="src\Core\NodeDataModel.h" />
+    <ClInclude Include="src\Core\NodeRegistry.h" />
+    <QtMoc Include="src\Core\FlowModel.h" />
+    <QtMoc Include="src\Core\FlowWorker.h" />
+    <QtMoc Include="src\Core\FlowEngine.h" />
     <QtMoc Include="src\Tools\ImageListView.h" />
     <QtMoc Include="src\Tools\AutoWrapLabel.h" />
     <QtMoc Include="src\Tools\ImageViewWidget.h" />
@@ -168,7 +177,6 @@
     <ClInclude Include="src\Plugins\BaseAlgorithmNode.h" />
     <QtMoc Include="src\Plugins\Height3DWidget.h" />
     <ClInclude Include="src\Plugins\ImageFilterNode.h" />
-    <ClInclude Include="src\Plugins\NodeFactory.h" />
     <QtMoc Include="src\Tools\OperatorButton.h" />
     <QtMoc Include="src\Plugins\NodeSelectorWidget.h" />
   </ItemGroup>
